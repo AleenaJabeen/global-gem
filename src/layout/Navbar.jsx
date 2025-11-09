@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,7 +27,7 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex text-[15px] space-x-8 font-semibold">
-          <li className="cursor-pointer hover:text-[#03CDE5]">Home</li>
+          <li className="cursor-pointer hover:text-[#03CDE5]"><Link to="/">Home</Link></li>
           <li className="cursor-pointer hover:text-[#03CDE5]">About Us</li>
           <li className="cursor-pointer hover:text-[#03CDE5]">
             Popular Destinations
