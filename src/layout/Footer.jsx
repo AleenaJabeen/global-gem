@@ -13,6 +13,7 @@ import {
   sofort,
   applepay,
 } from "../assets";
+import { MdArrowDropDown } from "react-icons/md";
 
 export default function Footer() {
   return (
@@ -31,19 +32,8 @@ export default function Footer() {
                 <option className="">French (FR)</option>
                 <option className="">German (DE)</option>
               </select>
-              <svg
-                className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="#778088"
-                stroke="#778088"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M6 9l6 6 6-6" />
-              </svg>
+                                         <MdArrowDropDown className="absolute right-3 top-1/2 -translate-y-1/2 text-[#778088] text-2xl pointer-events-none" />
+
             </div>
           </div>
 
@@ -58,19 +48,8 @@ export default function Footer() {
               <option>British Pound (£)</option>
               <option>Canadian Dollar (CA$)</option>
             </select>
-              <svg
-                className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="#778088"
-                stroke="#778088"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M6 9l6 6 6-6" />
-              </svg>
+             
+                           <MdArrowDropDown className="absolute right-3 top-1/2 -translate-y-1/2 text-[#778088] text-2xl pointer-events-none" />
             </div>
           </div>
         </div>

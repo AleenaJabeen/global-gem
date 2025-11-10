@@ -3,6 +3,9 @@ import { send, login, users, becomehost, switzerland, host3, host1, host2 } from
 import { LuMapPin } from "react-icons/lu";
 import { IoIosStar, IoMdCheckmark } from "react-icons/io";
 import { IoShieldCheckmarkOutline } from "react-icons/io5";
+import { MdArrowDropDown } from "react-icons/md";
+import { BiSolidDownArrow } from "react-icons/bi";
+import { BsCaretDownFill, BsCaretUpFill } from "react-icons/bs";
 
 export default function BecomeAHost() {
   return (
@@ -11,9 +14,9 @@ export default function BecomeAHost() {
         Why become a Host?
       </h2>
 
-      <div className="flex items-stretch justify-center gap-6 mb-12">
+      <div className="flex md:flex-row flex-col items-stretch justify-center gap-6 mb-12">
         {/* LEFT CARD */}
-        <div className="w-1/2 relative  rounded-[20px] overflow-hidden">
+        <div className="md:w-1/2 w-full relative rounded-[20px] overflow-hidden flex flex-col">
            <div className="absolute bg-[#96CCFF] inset-0 -z-10">
                  <img
                    src={becomehost}
@@ -23,8 +26,8 @@ export default function BecomeAHost() {
                  {/* Overlay only on image */}
                  <div className="absolute inset-0 bg-black/60"></div>
                </div>
-          <div className="relative p-6 sm:p-10 flex flex-col justify-center">
-            <h3 className="text-white text-2xl sm:text-[33px] font-bold mb-4">
+          <div className="relative p-6 sm:p-10  flex flex-col justify-center">
+            <h3 className="text-white text-2xl sm:text-[33px] font-bold mb-4 sm:pt-24 pt-12">
               Earn Doing What You Love
             </h3>
             <p className="text-white font-semibold text-sm sm:text-base mb-6 max-w-md">
@@ -48,19 +51,28 @@ export default function BecomeAHost() {
               </li>
             </ul>
 
-            <button className="bg-white text-[#141414] text-base font-extrabold px-6  py-3 rounded-full shadow-md shadow-[#1F293714] w-fit hover:bg-gray-200 transition">
+            <button className="bg-white text-[#141414] text-base font-extrabold px-6  py-3 rounded-full shadow-md shadow-[#1F293714] w-fit hover:bg-gray-200 transition mb-8">
               Become a Host
             </button>
           </div>
         </div>
 
         {/* RIGHT CARD */}
-        <div className="w-1/2 relative rounded-[20px] overflow-hidden h-auto">
-          <img
-            src={switzerland}
-            className="w-full h-auto"
-            alt=""
-          />
+        <div className="md:w-1/2 w-full relative rounded-[20px] overflow-hidden flex flex-col">
+          {/* Image should fill container height */}
+  <div className="hidden md:block absolute inset-0">
+    <img
+      src={switzerland}
+      className="w-fullh-full object-cover"
+      alt=""
+    />
+  </div>
+   <img
+      src={switzerland}
+      className="w-full md:hidden block h-fit object-cover"
+      alt=""
+    />
+ 
 
           <span className="absolute top-4 left-4 text-white bg-[#00000026] px-4 py-1 rounded-full text-base font-extrabold">
             Switzerland
@@ -75,12 +87,14 @@ export default function BecomeAHost() {
               </p>
               <p className="flex items-center gap-1 text-xs text-[#9999A7]"><IoIosStar className="text-[#FFB906] text-lg" />167 reviews</p>
             </div>
-              <div className="bg-white p-1 rounded-full">
+              <div className="relative bg-white p-1 rounded-full">
             <img
              src={host3}
               className="w-12 h-12 rounded-full"
               alt=""
             />
+                                                    <BsCaretDownFill className="absolute right-[1.22rem] -bottom-[1.35rem] -translate-y-1/2 text-white text-xl pointer-events-none" />
+
             </div>
           </div>
 
@@ -92,12 +106,14 @@ export default function BecomeAHost() {
               </p>
               <p className="flex items-center gap-1 text-xs text-[#9999A7]"><IoIosStar className="text-[#FFB906] text-lg" />167 reviews</p>
             </div>
-              <div className="bg-white p-1 rounded-full">
+              <div className="relative bg-white p-1 rounded-full">
             <img
              src={host1}
               className="w-12 h-12 rounded-full"
               alt=""
             />
+                                        <BsCaretDownFill className="absolute right-[1.22rem] -bottom-[1.35rem] -translate-y-1/2 text-white text-xl pointer-events-none" />
+             
             </div>
           </div>
 
@@ -110,19 +126,21 @@ export default function BecomeAHost() {
               </p>
               <p className="flex items-center gap-1 text-xs text-[#9999A7]"><IoIosStar className="text-[#FFB906] text-lg" />167 reviews</p>
             </div>
-              <div className="bg-white p-1 rounded-full">
+              <div className="relative bg-white p-1 rounded-full">
             <img
              src={host2}
               className="w-12 h-12 rounded-full"
               alt=""
             />
+                                                    <BsCaretDownFill className="absolute right-[1.22rem] -bottom-[1.35rem] -translate-y-1/2 text-white text-xl pointer-events-none" />
+
             </div>
           </div>
         </div>
       </div>
 
       {/* STATS */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="flex items-center gap-2  py-6 text-center px-4">
           <LuMapPin className="w-8 h-8 mb-2" />
           <div className="flex flex-col text-[#1C1C1E]">

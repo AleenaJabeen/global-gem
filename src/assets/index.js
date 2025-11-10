@@ -27,9 +27,20 @@ import switzerland from './HomeAssets/switzerland.jpg';
 import host1 from './HomeAssets/host1.png';
 import host2 from './HomeAssets/host2.png'
 import host3 from './HomeAssets/host3.jpg';
+import plan1 from './HomeAssets/plan1.jpg';
+import plan2 from './HomeAssets/plan2.png';
+import plan3 from './HomeAssets/plan3.png';
+import wishlist from './HomeAssets/wishlist.svg';
+import populardestination from './HomeAssets/populardestination.png';
+import nature from './HomeAssets/nature.svg';
+import transport from './HomeAssets/transport.svg';
+import taxi from './HomeAssets/taxi.svg';
+import tour from './HomeAssets/tour.svg';
+import visit from './HomeAssets/visit.svg';
+import arrow from './HomeAssets/arrow.svg'
 
 // home
-export {heroSection,map,date,guests,AppDownload,appscreen1,appscreen2,login,users,send,becomehost,switzerland,host3,host1,host2};
+export {heroSection,map,date,guests,AppDownload,arrow,visit,taxi,tour,transport,nature,appscreen1,appscreen2,login,users,send,becomehost,switzerland,host3,host1,host2,plan1,plan2,plan3,populardestination,wishlist};
 
 
 // layout
