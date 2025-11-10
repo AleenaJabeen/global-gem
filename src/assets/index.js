@@ -20,7 +20,7 @@ import AppDownload from './HomeAssets/AppDownload.svg';
 import appscreen1 from './HomeAssets/appscreen1.svg';
 import appscreen2 from './HomeAssets/appscreen2.svg'
 import send from './HomeAssets/Send.svg';
-import users from './HomeAssets/users.svg';
+import users from './HomeAssets/Users.svg';
 import login from './HomeAssets/login.svg';
 import becomehost from './HomeAssets/becomehost.png'
 import switzerland from './HomeAssets/switzerland.jpg';
