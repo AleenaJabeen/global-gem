@@ -37,10 +37,11 @@ import transport from './HomeAssets/transport.svg';
 import taxi from './HomeAssets/taxi.svg';
 import tour from './HomeAssets/tour.svg';
 import visit from './HomeAssets/visit.svg';
-import arrow from './HomeAssets/arrow.svg'
+import arrow from './HomeAssets/arrow.svg';
+import location from './HomeAssets/location.svg'
 
 // home
-export {heroSection,map,date,guests,AppDownload,arrow,visit,taxi,tour,transport,nature,appscreen1,appscreen2,login,users,send,becomehost,switzerland,host3,host1,host2,plan1,plan2,plan3,populardestination,wishlist};
+export {heroSection,map,date,guests,location,AppDownload,arrow,visit,taxi,tour,transport,nature,appscreen1,appscreen2,login,users,send,becomehost,switzerland,host3,host1,host2,plan1,plan2,plan3,populardestination,wishlist};
 
 
 // layout

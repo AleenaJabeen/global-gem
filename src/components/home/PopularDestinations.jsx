@@ -41,7 +41,7 @@ const categories=[
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <p className="text-lg font-[Mulish] text-[#1A1A1A] font-bold">Popular Destination</p>
+          <p className="text-lg  font-[Quattrocento] text-[#1A1A1A] font-bold ">Popular Destination</p>
           <h2 className="font-[Mulish] text-2xl md:text-3xl lg:text-[52px] drop-shadow-sm drop-shadow-[#FFFFFF66] font-bold text-[#1C2B38] leading-tight">
             Popular Destination Of <br className="hidden sm:block" /> This Year For You
           </h2>
@@ -80,7 +80,7 @@ const categories=[
         </button>
 
         {/* Info Box */}
-        <div className=" font-[Mulish] absolute md:-bottom-30 bottom-[-16rem] z-60 left-0 right-0 px-6 md:px-10 py-5">
+        <div className=" font-[Mulish] absolute md:-bottom-30 bottom-[-16rem] z-10 left-0 right-0 px-6 md:px-10 py-5">
           <div className="bg-[#F9FDFF] rounded-[20px] shadow-md shadow-[#0000001F] p-5 md:p-6">
             <div className="flex md:flex-row flex-col items-end gap-8">
                 <div className="md:w-[55%] w-full">

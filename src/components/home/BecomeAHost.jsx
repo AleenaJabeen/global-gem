@@ -1,5 +1,15 @@
 // BecomeAHost.jsx
-import { send, login, users, becomehost, switzerland, host3, host1, host2 } from "../../assets";
+import {
+  send,
+  login,
+  users,
+  becomehost,
+  switzerland,
+  host3,
+  host1,
+  host2,
+  location,
+} from "../../assets";
 import { LuMapPin } from "react-icons/lu";
 import { IoIosStar, IoMdCheckmark } from "react-icons/io";
 import { IoShieldCheckmarkOutline } from "react-icons/io5";
@@ -17,15 +27,15 @@ export default function BecomeAHost() {
       <div className="flex md:flex-row flex-col items-stretch justify-center gap-6 mb-12">
         {/* LEFT CARD */}
         <div className="md:w-1/2 w-full relative rounded-[20px] overflow-hidden flex flex-col">
-           <div className="absolute bg-[#96CCFF] inset-0 -z-10">
-                 <img
-                   src={becomehost}
-                   alt=""
-                   className="w-full h-full object-cover"
-                 />
-                 {/* Overlay only on image */}
-                 <div className="absolute inset-0 bg-black/60"></div>
-               </div>
+          <div className="absolute bg-[#96CCFF] inset-0 -z-10">
+            <img
+              src={becomehost}
+              alt=""
+              className="w-full h-full object-cover"
+            />
+            {/* Overlay only on image */}
+            <div className="absolute inset-0 bg-black/60"></div>
+          </div>
           <div className="relative p-6 sm:p-10  flex flex-col justify-center">
             <h3 className="text-white text-2xl sm:text-[33px] font-bold mb-4 sm:pt-24 pt-12">
               Earn Doing What You Love
@@ -60,19 +70,18 @@ export default function BecomeAHost() {
         {/* RIGHT CARD */}
         <div className="md:w-1/2 w-full relative rounded-[20px] overflow-hidden flex flex-col">
           {/* Image should fill container height */}
-  <div className="hidden md:block absolute inset-0">
-    <img
-      src={switzerland}
-      className="w-fullh-full object-cover"
-      alt=""
-    />
-  </div>
-   <img
-      src={switzerland}
-      className="w-full md:hidden block h-fit object-cover"
-      alt=""
-    />
- 
+          <div className="hidden md:block absolute inset-0">
+            <img
+              src={switzerland}
+              className="w-fullh-full object-cover"
+              alt=""
+            />
+          </div>
+          <img
+            src={switzerland}
+            className="w-full md:hidden block h-fit object-cover"
+            alt=""
+          />
 
           <span className="absolute top-4 left-4 text-white bg-[#00000026] px-4 py-1 rounded-full text-base font-extrabold">
             Switzerland
@@ -83,18 +92,17 @@ export default function BecomeAHost() {
             <div className="bg-white p-2 px-5s rounded-[8px] font-[Inter]">
               <p className="font-[Mulish] text-lg font-bold">Wayan S.</p>
               <p className="flex items-center gap-1 text-xs text-[#9999A7]">
-               <IoShieldCheckmarkOutline className="text-[#00C48C]  font-extrabold text-lg" /> Verified Guide 
+                <IoShieldCheckmarkOutline className="text-[#00C48C]  font-extrabold text-lg" />{" "}
+                Verified Guide
               </p>
-              <p className="flex items-center gap-1 text-xs text-[#9999A7]"><IoIosStar className="text-[#FFB906] text-lg" />167 reviews</p>
+              <p className="flex items-center gap-1 text-xs text-[#9999A7]">
+                <IoIosStar className="text-[#FFB906] text-lg" />
+                167 reviews
+              </p>
             </div>
-              <div className="relative bg-white p-1 rounded-full">
-            <img
-             src={host3}
-              className="w-12 h-12 rounded-full"
-              alt=""
-            />
-                                                    <BsCaretDownFill className="absolute right-[1.22rem] -bottom-[1.35rem] -translate-y-1/2 text-white text-xl pointer-events-none" />
-
+            <div className="relative bg-white p-1 rounded-full">
+              <img src={host3} className="w-12 h-12 rounded-full" alt="" />
+              <BsCaretDownFill className="absolute right-[1.22rem] -bottom-[1.35rem] -translate-y-1/2 text-white text-xl pointer-events-none" />
             </div>
           </div>
 
@@ -102,73 +110,69 @@ export default function BecomeAHost() {
             <div className="bg-white p-2 px-5s rounded-[8px] font-[Inter]">
               <p className="font-[Mulish] text-lg font-bold">Emmie K.</p>
               <p className="flex items-center gap-1 text-xs text-[#9999A7]">
-               <IoShieldCheckmarkOutline className="text-[#00C48C]  font-extrabold text-lg" /> Verified Guide 
+                <IoShieldCheckmarkOutline className="text-[#00C48C]  font-extrabold text-lg" />{" "}
+                Verified Guide
               </p>
-              <p className="flex items-center gap-1 text-xs text-[#9999A7]"><IoIosStar className="text-[#FFB906] text-lg" />167 reviews</p>
+              <p className="flex items-center gap-1 text-xs text-[#9999A7]">
+                <IoIosStar className="text-[#FFB906] text-lg" />
+                167 reviews
+              </p>
             </div>
-              <div className="relative bg-white p-1 rounded-full">
-            <img
-             src={host1}
-              className="w-12 h-12 rounded-full"
-              alt=""
-            />
-                                        <BsCaretDownFill className="absolute right-[1.22rem] -bottom-[1.35rem] -translate-y-1/2 text-white text-xl pointer-events-none" />
-             
+            <div className="relative bg-white p-1 rounded-full">
+              <img src={host1} className="w-12 h-12 rounded-full" alt="" />
+              <BsCaretDownFill className="absolute right-[1.22rem] -bottom-[1.35rem] -translate-y-1/2 text-white text-xl pointer-events-none" />
             </div>
           </div>
-
           <div className="absolute bottom-10 right-10 px-3 py-2 rounded-xl flex flex-col gap-5 items-center gap-2">
-          
             <div className="bg-white p-2 px-5s rounded-[8px] font-[Inter]">
               <p className="font-[Mulish] text-lg font-bold">Alina Jones</p>
               <p className="flex items-center gap-1 text-xs text-[#9999A7]">
-               <IoShieldCheckmarkOutline className="text-[#00C48C]  font-extrabold text-lg" /> Verified Guide 
+                <IoShieldCheckmarkOutline className="text-[#00C48C]  font-extrabold text-lg" />{" "}
+                Verified Guide
               </p>
-              <p className="flex items-center gap-1 text-xs text-[#9999A7]"><IoIosStar className="text-[#FFB906] text-lg" />167 reviews</p>
+              <p className="flex items-center gap-1 text-xs text-[#9999A7]">
+                <IoIosStar className="text-[#FFB906] text-lg" />
+                167 reviews
+              </p>
             </div>
-              <div className="relative bg-white p-1 rounded-full">
-            <img
-             src={host2}
-              className="w-12 h-12 rounded-full"
-              alt=""
-            />
-                                                    <BsCaretDownFill className="absolute right-[1.22rem] -bottom-[1.35rem] -translate-y-1/2 text-white text-xl pointer-events-none" />
-
+            <div className="relative bg-white p-1 rounded-full">
+              <img src={host2} className="w-12 h-12 rounded-full" alt="" />
+              <BsCaretDownFill className="absolute right-[1.22rem] -bottom-[1.35rem] -translate-y-1/2 text-white text-xl pointer-events-none" />
             </div>
           </div>
         </div>
       </div>
 
       {/* STATS */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="flex items-center gap-2  py-6 text-center px-4">
-          <LuMapPin className="w-8 h-8 mb-2" />
+      <div className="grid grid-cols-2 md:grid-cols-4 md:gap-4 gap-2">
+        <div className="flex items-center gap-2  py-6 text-center md:px-4">
+          <img src={location} alt="map icon" />
           <div className="flex flex-col text-[#1C1C1E]">
-            <p className="text-[33px] font-bold">50K+</p>
+            <p className="md:text-[33px]  text-xl font-bold">50K+</p>
             <p className="text-base font-extrabold">Locations</p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2  py-6 text-center px-4">
+        <div className="flex items-center gap-2  py-6 text-center md:px-4">
           <img src={login} alt="Login" />
           <div className="flex flex-col text-[#1C1C1E]">
-            <p className="text-[33px] font-bold">50K+</p>
+            <p className="md:text-[33px] text-xl font-bold">50K+</p>
             <p className="text-base font-extrabold">Check in</p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2  py-6 text-center px-4">
+        <div className="flex items-center gap-2  py-6 text-center md:px-4">
           <img src={send} alt="Send icon" />
           <div className="flex flex-col text-[#1C1C1E]">
-            <p className="text-[33px] font-bold">50K+</p>
+            <p className="md:text-[33px] text-xl font-bold">50K+</p>
             <p className="text-base font-extrabold">Travelers</p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2  py-6 text-center px-4">
+        <div className="flex items-center gap-2  py-6 text-center md:px-4">
           <img src={users} alt="User Icon" />
           <div className="flex flex-col text-[#1C1C1E]">
-            <p className="text-[33px] font-bold">50K+</p>
+            <p className="md:text-[33px] text-2xl font-bold">50K+</p>
             <p className="text-base font-extrabold">Hosts</p>
           </div>
         </div>

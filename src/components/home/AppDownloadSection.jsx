@@ -50,7 +50,7 @@ export default function AppDownloadSection() {
           <button className="flex items-center justify-center gap-2 bg-white text-[#1C2B38] font-extrabold px-6 py-3 rounded-full hover:opacity-90 transition">
             <FaApple size={20} /> Download For iOS
           </button>
-          <button className="flex items-center justify-center gap-2 bg-[#FFDA32] text-[#1C2B38] font-extrabold px-6 py-3 rounded-full hover:opacity-90 transition">
+          <button className="flex  text-nowrap items-center justify-center gap-2 bg-[#FFDA32] text-[#1C2B38] font-extrabold px-6 py-3 rounded-full hover:opacity-90 transition">
             <BsAndroid2 size={20} /> Download For Android
           </button>
         </div>

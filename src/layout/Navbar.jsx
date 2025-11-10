@@ -27,17 +27,18 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex text-[15px] space-x-8 font-semibold">
-          <li className="cursor-pointer hover:text-[#03CDE5]"><Link to="/">Home</Link></li>
-          <li className="cursor-pointer hover:text-[#03CDE5]">About Us</li>
-          <li className="cursor-pointer hover:text-[#03CDE5]">
-            Popular Destinations
+          <li className="cursor-pointer hover:text-gray-400"><Link to="/">Home</Link></li>
+          <li className="cursor-pointer hover:text-gray-400"><Link to="/about">About Us</Link></li>
+          <li className="cursor-pointer hover:text-gray-400">
+            <Link to="/destinations">Popular Destinations</Link>
+          
           </li>
-          <li className="cursor-pointer hover:text-[#03CDE5]">Our Packages</li>
-          <li className="cursor-pointer hover:text-[#03CDE5]">Help</li>
+          <li className="cursor-pointer hover:text-gray-400"><Link to="/package">Our Packages</Link></li>
+          <li className="cursor-pointer hover:text-gray-400">Help</li>
         </ul>
         <div className="hidden lg:flex items-center gap-4">
-          <p className="cursor-pointer hover:text-[#03CDE5]">Become a Host</p>
-          <button className="hidden md:block bg-white text-black font-semibold px-5 py-2 rounded-full hover:bg-[#03CDE5] hover:text-white transition">
+          <p className="cursor-pointer hover:text-gray-400">Become a Host</p>
+          <button className="hidden md:block bg-white text-black font-semibold px-5 py-2 rounded-full hover:bg-gray-500 hover:text-black transition">
             Sign In
           </button>
         </div>

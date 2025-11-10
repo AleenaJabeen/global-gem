@@ -18,7 +18,7 @@ export default function HeroSection() {
         />
         {/* Play Button */}
 
-        <div class="bg-[radial-gradient(circle,rgba(255,255,255,0),rgba(255,255,255,1))] absolute top-1/2 transform  -translate-y-1/2 right-1/2  z-10 hidden md:flex justify-center items-center w-[100px] h-[100px] rounded-full">
+        <div className="bg-[radial-gradient(circle,rgba(255,255,255,0),rgba(255,255,255,1))] absolute top-1/2 transform  -translate-y-1/2 right-1/2  z-10 hidden md:flex justify-center items-center w-[100px] h-[100px] rounded-full">
           <div className="bg-[radial-gradient(circle,rgba(255,255,255,0),rgba(255,255,255,1))] w-[70px] h-[70px] rounded-full md:flex justify-center items-center">
             <button className="bg-white rounded-full w-[42px] h-[42px] p-1 flex items-center justify-center">
               <FaPlay size={22} className="text-black" />

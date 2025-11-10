@@ -4,7 +4,7 @@ import { wishlist } from "../../assets";
 
 export default function PlanCard({ image, title, price, reviews }) {
   return (
-    <div className="relative w-full max-w-[300px] h-[612px] max-h-[600px] rounded-[32px] overflow-hidden text-white">
+    <div className="relative w-full max-w-[300px] md:h-[612px] h-[350px] max-h-[600px] rounded-[32px] overflow-hidden text-white">
       {/* BACKGROUND IMAGE */}
       <div className="absolute inset-0">
         <img src={image} alt={title} className="w-full h-full object-cover" />
