@@ -12,7 +12,7 @@ import googlepay from './LayoutAssets/googlepay.svg'
 import applepay from './LayoutAssets/applepay.svg';
 
 // home assets
-import heroSection from './HomeAssets/heroSection.png'
+import heroSection from './HomeAssets/heroSection.png';
 import map from './HomeAssets/map.svg';
 import date from './HomeAssets/date.svg';
 import guests from './HomeAssets/guests.svg';
