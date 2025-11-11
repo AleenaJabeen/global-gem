@@ -40,6 +40,17 @@ import visit from './HomeAssets/visit.svg';
 import arrow from './HomeAssets/arrow.svg';
 import location from './HomeAssets/location.svg'
 
+// package assets
+import destinationCard from './PackageAssets/DestinationCard.jpg';
+import destinationCard2 from './PackageAssets/DestinationCard2.jpg';
+import discover1 from './PackageAssets/discover1.jpg';
+import discover2 from './PackageAssets/discover2.jpg';
+import aboutus from './AboutAssets/aboutus.jpg'
+
+
+
+// package
+export {destinationCard,destinationCard2,discover1,discover2,aboutus}
 // home
 export {heroSection,map,date,guests,location,AppDownload,arrow,visit,taxi,tour,transport,nature,appscreen1,appscreen2,login,users,send,becomehost,switzerland,host3,host1,host2,plan1,plan2,plan3,populardestination,wishlist};
 

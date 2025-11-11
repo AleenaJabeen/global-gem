@@ -23,17 +23,24 @@ export default function Navbar() {
       className={`font-[Mulish] fixed top-0 left-0 w-full z-50 transition-all duration-300 ${navBg}`}
     >
       <div className="w-full mx-auto flex justify-between items-center md:px-12 px-6 py-4">
-        <div className="text-2xl font-bold tracking-wide font-[Nico_Moji]">Xperience</div>
+        <div className="text-2xl font-bold tracking-wide font-[Nico_Moji]">
+          Xperience
+        </div>
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex text-[15px] space-x-8 font-semibold">
-          <li className="cursor-pointer hover:text-gray-400"><Link to="/">Home</Link></li>
-          <li className="cursor-pointer hover:text-gray-400"><Link to="/about">About Us</Link></li>
+          <li className="cursor-pointer hover:text-gray-400">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="cursor-pointer hover:text-gray-400">
+            <Link to="/about">About Us</Link>
+          </li>
           <li className="cursor-pointer hover:text-gray-400">
             <Link to="/destinations">Popular Destinations</Link>
-          
           </li>
-          <li className="cursor-pointer hover:text-gray-400"><Link to="/package">Our Packages</Link></li>
+          <li className="cursor-pointer hover:text-gray-400">
+            <Link to="/package">Our Packages</Link>
+          </li>
           <li className="cursor-pointer hover:text-gray-400">Help</li>
         </ul>
         <div className="hidden lg:flex items-center gap-4">
@@ -55,11 +62,21 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="lg:hidden text-sm bg-black font-semibold text-white px-6 py-6 space-y-5">
-          <p className="cursor-pointer">Home</p>
-          <p className="cursor-pointer">About Us</p>
-          <p className="cursor-pointer">Popular Destinations</p>
-          <p className="cursor-pointer">Our Packages</p>
-          <p className="cursor-pointer">Help</p>
+          <p  onClick={toggleMenu} className="cursor-pointer">
+            <Link to="/">Home</Link>
+          </p>
+          <p  onClick={toggleMenu} className="cursor-pointer">
+            <Link to="/about">About Us</Link>
+          </p>
+          <p  onClick={toggleMenu} className="cursor-pointer">
+            <Link to="/">Popular Destinations</Link>
+          </p>
+          <p  onClick={toggleMenu} className="cursor-pointer">
+            <Link to="/package">Our Packages</Link>
+          </p>
+          <p onClick={toggleMenu}  className="cursor-pointer">
+            <Link to="/destinations">Help</Link>
+          </p>
           <p className="cursor-pointer">Become a Host</p>
           <button className="w-full bg-white text-black font-semibold py-2 rounded-full hover:bg-[#03CDE5] hover:text-white transition">
             Sign In
