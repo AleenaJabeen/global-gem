@@ -2,8 +2,10 @@ import { useState } from "react";
 import { IoIosStar } from "react-icons/io";
 import {  AiFillHeart } from "react-icons/ai";
 import { wishlist } from "../../assets";
+import { useNavigate } from "react-router-dom";
 
 export default function PlanCard({ image, title, price, reviews }) {
+  const navigate=useNavigate();
   const [isWishlisted, setIsWishlisted] = useState(false);
 
   const handleWishlistToggle = () => {
@@ -59,7 +61,7 @@ export default function PlanCard({ image, title, price, reviews }) {
             </div>
           </div>
 
-          <button className="font-[Mulish] w-[75%] mx-auto bg-white text-[#141414] font-extrabold py-2 rounded-full mt-5">
+          <button  onClick={() => navigate("/detail")} className="font-[Mulish] w-[75%] mx-auto bg-white text-[#141414] font-extrabold py-2 rounded-full mt-5">
             See detail
           </button>
         </div>

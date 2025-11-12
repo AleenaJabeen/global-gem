@@ -10,7 +10,11 @@ import visa from './LayoutAssets/visa.svg'
 import sofort from './LayoutAssets/sofort.svg';
 import googlepay from './LayoutAssets/googlepay.svg'
 import applepay from './LayoutAssets/applepay.svg';
-
+import mail from './LayoutAssets/mail.svg'
+import person from './LayoutAssets/person.svg';
+import arrowIcon from './LayoutAssets/arrowIcon.svg';
+import emailVerify from './LayoutAssets/emailVerify.svg';
+import verify from './LayoutAssets/verify.svg';
 // home assets
 import heroSection from './HomeAssets/heroSection.png';
 import map from './HomeAssets/map.svg';
@@ -39,6 +43,10 @@ import tour from './HomeAssets/tour.svg';
 import visit from './HomeAssets/visit.svg';
 import arrow from './HomeAssets/arrow.svg';
 import location from './HomeAssets/location.svg'
+import detail1 from './HomeAssets/detail1.png';
+import detail2 from './HomeAssets/detail2.png';
+import detail3 from './HomeAssets/detail3.png';
+
 
 // package assets
 import destinationCard from './PackageAssets/DestinationCard.jpg';
@@ -52,8 +60,8 @@ import aboutus from './AboutAssets/aboutus.jpg'
 // package
 export {destinationCard,destinationCard2,discover1,discover2,aboutus}
 // home
-export {heroSection,map,date,guests,location,AppDownload,arrow,visit,taxi,tour,transport,nature,appscreen1,appscreen2,login,users,send,becomehost,switzerland,host3,host1,host2,plan1,plan2,plan3,populardestination,wishlist};
+export {detail1,detail2,detail3,heroSection,map,date,guests,location,AppDownload,arrow,visit,taxi,tour,transport,nature,appscreen1,appscreen2,login,users,send,becomehost,switzerland,host3,host1,host2,plan1,plan2,plan3,populardestination,wishlist};
 
 
 // layout
-export {mastercard,maestro,discover,visa,paypal,bitpay,express,sofort,googlepay,applepay};
+export {mastercard,maestro,discover,visa,paypal,arrowIcon,emailVerify,bitpay,express,sofort,googlepay,applepay,mail,person,verify};

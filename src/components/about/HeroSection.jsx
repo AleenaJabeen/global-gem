@@ -9,7 +9,7 @@ function HeroSection({ title }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="relative bg-black h-full md:py-12 py-4 text-white flex flex-col justify-center items-center overflow-hidden">
+    <section id="hero-section" className="relative bg-black h-full md:py-12 py-4 text-white flex flex-col justify-center items-center overflow-hidden">
       <div className="relative w-full flex justify-center">
         <img
           src={AppDownload}
