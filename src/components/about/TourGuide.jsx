@@ -17,11 +17,11 @@ function TourGuide() {
         <img
   src={host3}
           alt="guide"
-          className="w-56 sm:w-64 lg:h-[406px] h-76 md:w-56 rounded-2xl shadow-lg transform rotate-[4deg] hover:rotate-0 transition-all duration-500"
+          className="w-56 sm:w-64 lg:h-[406px] h-76 md:w-50 lg:w-72 rounded-2xl shadow-lg transform rotate-[4deg] hover:rotate-0 transition-all duration-500"
         />
 
         {/* Center Card */}
-        <div className="relative w-56 sm:w-64 lg:h-[406px] h-76 lg:w-76 rounded-2xl -rotate-[4deg] shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-500">
+        <div className="relative w-56 sm:w-64 lg:h-[406px] h-76 lg:w-80 rounded-2xl -rotate-[4deg] shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-500">
           <img
           src={host2}
             alt="travel guide"
@@ -37,7 +37,7 @@ function TourGuide() {
         <img
         src={host3}
           alt="guide"
-          className="w-56 sm:w-64  lg:h-[406px] h-76 md:w-56 rounded-2xl shadow-lg transform rotate-[4deg] hover:rotate-0 transition-all duration-500"
+          className="w-56 sm:w-64  lg:h-[406px] h-76 md:w-50 lg:w-72  rounded-2xl shadow-lg transform rotate-[4deg] hover:rotate-0 transition-all duration-500"
         />
       </div>
     </div>

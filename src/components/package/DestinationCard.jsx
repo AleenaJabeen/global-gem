@@ -1,10 +1,16 @@
-import React from "react";
+import React,{useState} from "react";
 import { FaStar } from "react-icons/fa";
 import { FiMapPin} from "react-icons/fi";
 import { destinationCard, wishlist } from "../../assets";
 import { CiStar } from "react-icons/ci";
+import { AiFillHeart } from "react-icons/ai";
 
 function DestinationCard() {
+    const [isWishlisted, setIsWishlisted] = useState(false);
+    
+      const handleWishlistToggle = () => {
+        setIsWishlisted((prev) => !prev);
+      };
   return (
     <div className="w-full px-6 lg:px-20 py-10">
          <div>
@@ -24,9 +30,17 @@ function DestinationCard() {
               <span className="absolute top-3 left-3 bg-[#00000080] text-white text-sm font-extrabold sm:text-base px-3 py-1 rounded-full">
           Indonesia
         </span>
-        <button className="absolute top-3 right-3 bg-white w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full shadow-md">
-         <img src={wishlist} alt="Favourite" />
-        </button>
+        {/* Wishlist (Heart) Button */}
+                     <button
+                       onClick={handleWishlistToggle}
+                       className="absolute top-3 right-3 bg-white rounded-full p-3 shadow-md z-20 transition-transform duration-200 hover:scale-110"
+                     >
+                       {isWishlisted ? (
+                         <AiFillHeart className="text-red-500 text-2xl" />
+                       ) : (
+                         <img src={wishlist} alt="Add to Wishlist" className="w-6 h-6" />
+                       )}
+                     </button>
       </div>
 
       {/* RIGHT CONTENT */}

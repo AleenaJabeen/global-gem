@@ -39,14 +39,14 @@ const categories=[
   return (
     <div className="w-full h-full bg-white py-10 px-4 md:px-12 lg:px-16">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center md:flex-row flex-col md:justify-between mb-6">
         <div>
           <p className="text-lg  font-[Quattrocento] text-[#1A1A1A] font-bold ">Popular Destination</p>
-          <h2 className="font-[Mulish] text-2xl md:text-3xl lg:text-[52px] drop-shadow-sm drop-shadow-[#FFFFFF66] font-bold text-[#1C2B38] leading-tight">
+          <h2 className="font-[Mulish] text-2xl capitalize md:text-3xl lg:text-[52px] drop-shadow-sm drop-shadow-[#FFFFFF66] font-bold text-[#1C2B38] leading-tight">
             Popular Destination Of <br className="hidden sm:block" /> This Year For You
           </h2>
         </div>
-        <button className="flex items-center gap-2 text-lg font-bold text-[#1A1A1A] ">
+        <button className="flex items-center self-start gap-2 text-lg font-bold text-[#1A1A1A] ">
           See more <img src={arrow} alt="Right arrow"  className="mt-1"/>
         </button>
       </div>
