@@ -69,13 +69,13 @@ export default function Navbar() {
             <Link to="/about">About Us</Link>
           </p>
           <p  onClick={toggleMenu} className="cursor-pointer">
-            <Link to="/">Popular Destinations</Link>
+            <Link to="/destinations">Popular Destinations</Link>
           </p>
           <p  onClick={toggleMenu} className="cursor-pointer">
             <Link to="/package">Our Packages</Link>
           </p>
           <p onClick={toggleMenu}  className="cursor-pointer">
-            <Link to="/destinations">Help</Link>
+            <Link to="/">Help</Link>
           </p>
           <p className="cursor-pointer">Become a Host</p>
           <button className="w-full bg-white text-black font-semibold py-2 rounded-full hover:bg-[#03CDE5] hover:text-white transition">
