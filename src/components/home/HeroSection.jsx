@@ -26,7 +26,7 @@ export default function HeroSection() {
           </div>
         </div>
         {/* Search Bar */}
-        <div className="font-[Inter]  relative hidden bottom-12 w-[60%] mx-auto z-10 bg-white text-black md:flex flex-wrap justify-between items-center rounded-full py-2 px-4 md:p-4 shadow-xl">
+        <div className="font-[Inter] w-full  relative hidden md:bottom-12  md:w-[60%] mx-auto z-10 bg-white text-black md:flex flex-wrap justify-between items-center rounded-full py-2 px-4 md:p-4 shadow-xl">
           <div className="flex items-start justify-start gap-2  border-r-[1.09px] border-[#E5E7EB]">
             <img src={map} alt="Map icon" className="mt-1 " />
             <div className="flex flex-col">

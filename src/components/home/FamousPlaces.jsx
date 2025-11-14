@@ -60,7 +60,7 @@ const categories = [
   },
 ];
 
-export default function FamousPlaces() {
+export default function FamousPlaces(props) {
   const sliderRef = useRef(null);
 
   const scrollLeft = () => {
@@ -73,8 +73,8 @@ export default function FamousPlaces() {
 
   return (
     <div className="w-full px-4 md:px-10 py-6">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl md:text-2xl font-semibold">Famous in Bali</h2>
+      <div className="font-[Mulish] flex justify-between items-center mb-4">
+        <h2 className={`${!props.title.includes("Famous")?"rounded-full border border-[#1F1F1F] text-[#495560] px-4 py-2 text-center font-bold text-sm":"font-[Inter] text-xl md:text-2xl font-medium text-black"} `}>{props.title}</h2>
 
         <div className="flex items-center gap-3">
           <button

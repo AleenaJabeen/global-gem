@@ -61,6 +61,7 @@ import pets from './HomeAssets/pets.svg';
 import dryer from './HomeAssets/dryer.svg';
 import security from './HomeAssets/security.svg';
 import bicycle from './HomeAssets/bicycle.svg'
+import review from './HomeAssets/review.jpg';
 
 
 // package assets
@@ -72,10 +73,11 @@ import aboutus from './AboutAssets/aboutus.jpg'
 
 
 
+
 // package
 export {destinationCard,destinationCard2,discover1,discover2,aboutus}
 // home
-export {detail1,detail2,bicycle,kitchen,dryer,leaf,pets,security,refrigerator,air,washer,wifi,detail3,calendarIcon,checkInIcon,cleanIcon,homeIcon,person2,heroSection,map,date,guests,location,AppDownload,arrow,visit,taxi,tour,transport,nature,appscreen1,appscreen2,login,users,send,becomehost,switzerland,host3,host1,host2,plan1,plan2,plan3,populardestination,wishlist};
+export {detail1,detail2,bicycle,review,kitchen,dryer,leaf,pets,security,refrigerator,air,washer,wifi,detail3,calendarIcon,checkInIcon,cleanIcon,homeIcon,person2,heroSection,map,date,guests,location,AppDownload,arrow,visit,taxi,tour,transport,nature,appscreen1,appscreen2,login,users,send,becomehost,switzerland,host3,host1,host2,plan1,plan2,plan3,populardestination,wishlist};
 
 
 // layout

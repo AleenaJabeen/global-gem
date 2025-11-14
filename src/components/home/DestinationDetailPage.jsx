@@ -42,7 +42,7 @@ export default function DestinationDetailPage() {
             4.8 · <span className="underline">7 reviews</span> ·
           </span>
           <HiMiniMapPin className="mx-1 text-black" />
-          <span className="underline">Ubud, Bali</span>
+          <span className="underline">Ubud,Bali</span>
         </div>
 
         {/* Images */}
@@ -195,6 +195,9 @@ export default function DestinationDetailPage() {
               <span>To:</span>
               <input type="date" className="border rounded p-1" />
             </div>
+             <button className="w-full bg-black text-white text-sm py-3 my-5 rounded-full font-medium font-[Inter] hover:bg-gray-900">
+              Book Now
+            </button>
 
             <div className="flex justify-between text-gray-700 text-sm mb-2">
               <span>$75 × 2 people</span>
@@ -222,9 +225,7 @@ export default function DestinationDetailPage() {
               <span>$701</span>
             </div>
 
-            <button className="w-full bg-black text-white py-3 rounded-lg font-semibold hover:bg-gray-900">
-              Book Now
-            </button>
+           
           </div>
         </div>
         <div className="md:w-[72%] w-full">
@@ -235,7 +236,7 @@ export default function DestinationDetailPage() {
         <hr className="w-full text-[#CEDADF] mt-2 mb-4" />
         <Map />
         <hr className="w-full text-[#CEDADF] mt-2 mb-4" />
-        <FamousPlaces />
+        <FamousPlaces title="Famous in Bali" />
         <hr className="w-full text-[#CEDADF] mt-2 mb-4" />
         <CustomerReviews />
       </div>
