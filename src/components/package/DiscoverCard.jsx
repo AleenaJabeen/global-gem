@@ -3,7 +3,7 @@ import { FaStar } from 'react-icons/fa';
 import { HiMapPin } from 'react-icons/hi2';
 
 const DiscoverCard = ({ title, country, type, price, reviews, rating, image }) => (
-  <div className="font-[Mulish] bg-white border border-[#E5E7EB] p-2 rounded-[20px] shadow-md overflow-hidden hover:shadow-xl transition-all">
+  <div className="min-w-[270px] font-[Mulish] bg-white border border-[#E5E7EB] p-2 rounded-[20px] shadow-md overflow-hidden hover:shadow-xl transition-all">
     <img src={image} alt={title} className="h-48 w-full object-cover rounded-lg" />
     <div className="p-4">
       <h3 className="text-base font-medium mb-1">{title}</h3>

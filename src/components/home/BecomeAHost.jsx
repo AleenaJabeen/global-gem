@@ -10,12 +10,9 @@ import {
   host2,
   location,
 } from "../../assets";
-import { LuMapPin } from "react-icons/lu";
 import { IoIosStar, IoMdCheckmark } from "react-icons/io";
 import { IoShieldCheckmarkOutline } from "react-icons/io5";
-import { MdArrowDropDown } from "react-icons/md";
-import { BiSolidDownArrow } from "react-icons/bi";
-import { BsCaretDownFill, BsCaretUpFill } from "react-icons/bs";
+import { BsCaretDownFill } from "react-icons/bs";
 
 export default function BecomeAHost() {
   return (

@@ -46,6 +46,21 @@ import location from './HomeAssets/location.svg'
 import detail1 from './HomeAssets/detail1.png';
 import detail2 from './HomeAssets/detail2.png';
 import detail3 from './HomeAssets/detail3.png';
+import person2 from './HomeAssets/person2.svg';
+import homeIcon from './HomeAssets/homeIcon.svg';
+import cleanIcon from './HomeAssets/cleanIcon.svg';
+import calendarIcon from './HomeAssets/calendarIcon.svg';
+import checkInIcon from './HomeAssets/checkInIcon.svg';
+import leaf from './HomeAssets/leaf.svg';
+import wifi from './HomeAssets/wifi.svg';
+import washer from './HomeAssets/washer.svg';
+import air from './HomeAssets/air.svg';
+import refrigerator from './HomeAssets/refrigerator.svg';
+import kitchen from './HomeAssets/kitchen.svg';
+import pets from './HomeAssets/pets.svg';
+import dryer from './HomeAssets/dryer.svg';
+import security from './HomeAssets/security.svg';
+import bicycle from './HomeAssets/bicycle.svg'
 
 
 // package assets
@@ -60,7 +75,7 @@ import aboutus from './AboutAssets/aboutus.jpg'
 // package
 export {destinationCard,destinationCard2,discover1,discover2,aboutus}
 // home
-export {detail1,detail2,detail3,heroSection,map,date,guests,location,AppDownload,arrow,visit,taxi,tour,transport,nature,appscreen1,appscreen2,login,users,send,becomehost,switzerland,host3,host1,host2,plan1,plan2,plan3,populardestination,wishlist};
+export {detail1,detail2,bicycle,kitchen,dryer,leaf,pets,security,refrigerator,air,washer,wifi,detail3,calendarIcon,checkInIcon,cleanIcon,homeIcon,person2,heroSection,map,date,guests,location,AppDownload,arrow,visit,taxi,tour,transport,nature,appscreen1,appscreen2,login,users,send,becomehost,switzerland,host3,host1,host2,plan1,plan2,plan3,populardestination,wishlist};
 
 
 // layout

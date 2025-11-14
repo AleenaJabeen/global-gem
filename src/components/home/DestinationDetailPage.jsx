@@ -1,15 +1,30 @@
 import { FiMapPin } from "react-icons/fi";
 import { IoIosStar } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import { detail1, detail2, detail3 } from "../../assets";
+import {
+  detail1,
+  detail2,
+  detail3,
+  host3,
+  calendarIcon,
+  checkInIcon,
+  cleanIcon,
+  homeIcon,
+  person2,
+  send,
+} from "../../assets";
 import { HiMiniMapPin } from "react-icons/hi2";
 import Description from "./Description";
+import { MdOutlineVerifiedUser } from "react-icons/md";
+import CustomerReviews from "./CustomerReviews";
+import Map from "./Map";
+import FamousPlaces from "./FamousPlaces";
 
 export default function DestinationDetailPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="font-[Poppins] bg-white min-h-screen flex flex-col items-center p-4 md:p-10">
+    <div className="font-[Poppins] bg-white min-h-screen flex flex-col items-center px-6 py-10 lg:px-16">
       <div className="max-w-6xl w-full">
         {/* <button
           onClick={() => navigate(-1)}
@@ -32,62 +47,128 @@ export default function DestinationDetailPage() {
 
         {/* Images */}
         <div className="flex md:flex-row flex-col items-start gap-4 mb-8">
-             {/* Column 1 */}
+          {/* Column 1 */}
 
-              <div className="md:w-[72%]  w-full gap-2 flex flex-col">
-                {/* Detail start images */} 
+          <div className="md:w-[72%]  w-full gap-2 flex flex-col">
+            {/* Detail start images */}
 
             <div className="flex items-stretch gap-2">
-          <div className="w-[60%]">
-            <img
-              src={detail1}
-              alt="Main"
-              className="w-full h-full rounded-xl object-cover col-span-1 md:col-span-1"
-            />
-          </div>
-          <div className="flex justify-between items-between  w-[40%] gap-3 flex-col h-full">
-            <img
-              src={detail2}
-              alt="1"
-              className="w-full  h-[50%]  object-cover rounded-xl"
-            />
-            <img
-              src={detail3}
-              alt="2"
-              className="w-full   h-[50%]  object-cover rounded-xl"
-            />
-          </div>
-          </div>
-           {/* Details + Booking */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Left Section */}
-          <div className="col-span-2">
-            <div className="flex items-center gap-3 mb-3">
-              <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
-                alt="host"
-                className="w-12 h-12 rounded-full"
-              />
-              <div>
-                <h2 className="font-semibold">Wayan Suta</h2>
-                <p className="text-gray-500 text-sm">Joined May 2021</p>
+              <div className="w-[60%]">
+                <img
+                  src={detail1}
+                  alt="Main"
+                  className="w-full h-full rounded-xl object-cover col-span-1 md:col-span-1"
+                />
+              </div>
+              <div className="flex justify-between items-between  w-[40%] gap-3 flex-col h-full">
+                <img
+                  src={detail2}
+                  alt="1"
+                  className="w-full  h-[50%]  object-cover rounded-xl"
+                />
+                <img
+                  src={detail3}
+                  alt="2"
+                  className="w-full   h-[50%]  object-cover rounded-xl"
+                />
               </div>
             </div>
+            {/* Details + Booking */}
+            <div className="flex items-center  gap-8 mt-4">
+              {/* Left Section */}
+              <div className="w-full">
+                <div className="w-full flex lg:flex-row flex-col justify-between gap-3 mb-5">
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={host3}
+                      alt="host"
+                      className="w-12 h-12 rounded-full"
+                    />
+                    <div className="flex items-center gap-16 font-[Inter]">
+                      <div>
+                        <h2 className="font-medium text-2xl text-black ">
+                          Wayan Suta
+                        </h2>
+                        <p className="text-[#6B7280] text-sm">
+                          Joined May 2021
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4 pl-6">
+                      <img src={person2} alt="User icon" />
+                      <img src={send} alt="Send icon" className="w-5" />
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-1 text-[#6B7280] font-[Mulish] text-sm">
+                    <div className="flex items-center gap-1">
+                      <h3 className="flex items-center gap-1">
+                        {" "}
+                        <MdOutlineVerifiedUser className="text-xl text-[#00C48C]" />
+                        Verified Guide
+                      </h3>
+                      <h3 className="flex items-center gap-1">
+                        {" "}
+                        <IoIosStar className="text-xl text-[#FFB906]" /> 167
+                        reviews
+                      </h3>
+                    </div>
+                    <div className="flex items-center lg:justify-end gap-2 text-[10px] font-[Inter] text-white">
+                      <p className="bg-[#515151]  rounded-[5.5px]  py-1 px-4 text-center">
+                        English
+                      </p>
+                      <p className="bg-[#515151]  rounded-[5.5px] px-4 py-1 text-center">
+                        Indonesian
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
-            <div className="text-gray-700 text-sm md:text-base">
-              <p className="mb-2">
-                🏠 Entire home · You’ll have the apartment to yourself
-              </p>
-              <p className="mb-2">🔑 Self check-in with keypad</p>
-              <p className="mb-2">
-                🧼 Enhanced Clean · 5-step cleaning process
-              </p>
-              <p className="mb-2">💰 Free cancellation before Feb 14</p>
+                <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 mt-4">
+                  <div className="flex items-start gap-3">
+                    <img src={homeIcon} alt="Home Icon" />
+                    <div className="font-[Mulish] flex flex-col">
+                      <p className="text-black text-base font-medium">
+                        Entire home
+                      </p>
+                      <p className="text-[#6B7280] text-sm">
+                        You’ll have the apartment to yourself
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <img src={checkInIcon} alt="checkin Icon" />
+                    <div className="font-[Mulish] flex flex-col">
+                      <p className="text-black text-base font-medium">
+                        Self check-in
+                      </p>
+                      <p className="text-[#6B7280] text-sm">
+                        Check yourself in with the keypad.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <img src={cleanIcon} alt="Clean Icon" />
+                    <div className="font-[Mulish] flex flex-col">
+                      <p className="text-black text-base font-medium">
+                        Enhanced Clean
+                      </p>
+                      <p className="text-[#6B7280] text-sm">
+                        This Host committed to Airbnb’s 5-step enhanced cleaning
+                        process. Show more
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <img src={calendarIcon} alt="Calendar Icon" />
+                    <div className="font-[Mulish] flex flex-col">
+                      <p className="text-black text-base font-medium">
+                        Free cancellation before Feb 14
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        {/* Description plus Activities */}
-        <Description/>
           </div>
           {/* Column 2 */}
           <div className="font-[Mulish] md:w-[30%] w-full border border-[#E5E7EB] rounded-md shadow-lg p-5 h-fit">
@@ -146,8 +227,17 @@ export default function DestinationDetailPage() {
             </button>
           </div>
         </div>
-
-       
+        <div className="md:w-[72%] w-full">
+          <hr className="w-full text-[#CEDADF] mt-2 mb-4" />
+          {/* Description plus Activities */}
+          <Description />
+        </div>
+        <hr className="w-full text-[#CEDADF] mt-2 mb-4" />
+        <Map />
+        <hr className="w-full text-[#CEDADF] mt-2 mb-4" />
+        <FamousPlaces />
+        <hr className="w-full text-[#CEDADF] mt-2 mb-4" />
+        <CustomerReviews />
       </div>
     </div>
   );
