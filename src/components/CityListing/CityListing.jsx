@@ -1,7 +1,8 @@
 import React from "react";
-import FamousPlaces from "./home/FamousPlaces";
+import FamousPlaces from '../home/FamousPlaces'
 import { useLocation } from "react-router-dom";
-import Navbar from "../layout/Navbar";
+import Navbar from "../../layout/Navbar";
+import ListingPage from "./ListingPage";
 
 function CityListing() {
   const { search } = useLocation();
@@ -12,6 +13,7 @@ function CityListing() {
         navStyle="text-[#1C1C1E] bg-white"
         buttonBg="bg-[#1C1C1E] text-[#F2F2F7]"
       />
+      <ListingPage query={query}/>
       <div className="px-6 pt-4 lg:px-16">
         <h2 className="md:text-2xl text-xl font-medium font-[Inter] text-black">
           Explore More in Bali

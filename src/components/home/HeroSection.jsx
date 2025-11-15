@@ -23,7 +23,7 @@ export default function HeroSection() {
         <img
           src={heroSection}
           alt="Camping in forest"
-          className="md:w-[80%]  h-full  w-full mx-auto mt-[7rem]  md:rounded-[20px]  object-cover opacity-90"
+          className="md:w-[80%]  h-full  w-full mx-auto mt-[2rem]  md:rounded-[20px]  object-cover opacity-90"
         />
         {/* Play Button */}
 

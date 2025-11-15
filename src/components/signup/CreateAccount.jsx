@@ -6,6 +6,7 @@ import { HiOutlineCamera } from "react-icons/hi";
 import EmailVerification from "./EmailVerification";
 import VerifyEmail from "./VerifyEmail";
 import { useNavigate } from "react-router-dom";
+import Navbar from '../../layout/Navbar'
 
 export default function CreateAccount() {
   const navigate=useNavigate();

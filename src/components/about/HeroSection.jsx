@@ -23,7 +23,7 @@ function HeroSection({ title }) {
         <img
           src={AppDownload}
           alt="Camping in forest"
-          className="w-[90%] md:w-[80%] lg:w-[75%] h-full mx-auto md:mt-[7rem] sm:mt-[5rem] mt-[3rem] rounded-[20px] object-cover opacity-90"
+          className="w-[90%] md:w-[80%] lg:w-[75%] h-full mx-auto md:mt-[2rem] rounded-[20px] object-cover opacity-90"
         />
 
         {/* Title */}

@@ -26,12 +26,12 @@ export default function PlanCard({ image, title, price, reviews }) {
         {/* Wishlist (Heart) Button */}
         <button
           onClick={handleWishlistToggle}
-          className="absolute top-3 right-3 bg-white rounded-full p-3 shadow-md z-20 transition-transform duration-200 hover:scale-110"
+          className={`${isWishlisted?"bg-[#FF6B6B]":"bg-white"} absolute top-3 right-3 w-12 h-12 flex items-center justify-center  rounded-full p-3 shadow-md z-20 transition-transform duration-200 hover:scale-110`}
         >
           {isWishlisted ? (
-            <AiFillHeart className="text-red-500 text-2xl" />
+            <AiFillHeart className="text-white rounded-full text-2xl" />
           ) : (
-            <img src={wishlist} alt="Add to Wishlist" className="w-6 h-6" />
+            <img src={wishlist} alt="Add to Wishlist" className="w-full" />
           )}
         </button>
 
