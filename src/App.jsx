@@ -8,6 +8,7 @@ import ScrollToTop from "./layout/ScrollToTop";
 import Login from "./components/signup/Login";
 import CreateAccount from "./components/signup/CreateAccount";
 import DestinationDetailPage from "./components/home/DestinationDetailPage";
+import CityListing from "./components/CityListing";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="login" element={<Login/>}/>
           <Route path="signup" element={<CreateAccount/>}/>
            <Route path="detail" element={<DestinationDetailPage/>}/>
+           <Route path="city-listing" element={<CityListing/>}/>
       </Route>
       
     </Routes>

@@ -3,14 +3,23 @@ import { AppDownload, date, guests, map } from "../../assets";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FiSearch } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 function HeroSection({ title }) {
   const [selectedDate, setSelectedDate] = useState(null);
   const [open, setOpen] = useState(false);
+   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (!search.trim()) return;
+
+    navigate(`/city-listing?search=${encodeURIComponent(search)}`);
+  };
 
   return (
     <section id="hero-section" className="relative bg-black h-full md:py-12 py-4 text-white flex flex-col justify-center items-center overflow-hidden">
-      <div className="relative w-full flex justify-center">
+      <div className="relative w-full flex lg:flex-row flex-col lg:justify-center">
         <img
           src={AppDownload}
           alt="Camping in forest"
@@ -24,10 +33,10 @@ function HeroSection({ title }) {
         </h2>
 
         {/* Search Container */}
-        {title.toLowerCase() !== "about us" && (
-          <div className="font-[Inter] absolute   top-[65%]
-            w-[90%] sm:w-[85%] md:w-[70%] lg:w-[60%] mx-auto z-10 bg-white text-black 
-            flex flex-wrap md:flex-nowrap justify-between items-center rounded-full py-2 px-3 sm:px-4 shadow-xl">
+        {title.toLowerCase() !== "about us" && ( 
+          <div className="font-[Inter] lg:absolute relative lg:bottom-[25%] lg:mt-1 mt-16
+            w-full  lg:w-[75%] xl:w-[65%] mx-auto z-10 bg-white text-black 
+            md:flex flex-wrap justify-between items-center lg:rounded-full py-5 px-4 md:p-4 shadow-xl lg:mb-1 -mb-4 lg:rounded-full py-2 px-3 sm:px-4">
 
             {/* LOCATION */}
             <div className="flex items-start gap-2 border-r-[1px] border-[#E5E7EB] pr-2 w-1/2 sm:w-auto">
@@ -82,10 +91,16 @@ function HeroSection({ title }) {
             </div>
 
             {/* SEARCH BUTTON */}
-            <button className="bg-black text-white font-semibold px-4 sm:px-6 py-2 rounded-full flex items-center space-x-2 mt-2 sm:mt-0 text-xs sm:text-sm">
-              <FiSearch />
-              <span>Search</span>
-            </button>
+           <button onClick={handleSearch}  className="md:w-fit w-full bg-black text-white font-semibold px-6 py-2 rounded-full flex items-center space-x-2  transition">
+                       <FiSearch />
+                      <input
+                        value={search}
+                   onChange={(e) => setSearch(e.target.value)}
+                           type="text"
+                           placeholder="Search"
+                           className="outline-none w-24 text-white font-extrabold text-base bg-transparent"
+                         />
+                     </button>
           </div>
         )}
       </div>

@@ -4,10 +4,19 @@ import { date, guests, heroSection, map } from "../../assets";
 import { FaPlay } from "react-icons/fa";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
    const [selectedDate, setSelectedDate] = useState(null);
   const [open, setOpen] = useState(false);
+   const [search, setSearch] = useState("");
+    const navigate = useNavigate();
+  
+    const handleSearch = () => {
+      if (!search.trim()) return;
+  
+      navigate(`/city-listing?search=${encodeURIComponent(search)}`);
+    };
   return (
     <section className="relative bg-black h-full md:py-12  py-4 text-white flex flex-col justify-center items-center overflow-hidden">
       <div className="relative">
@@ -26,7 +35,7 @@ export default function HeroSection() {
           </div>
         </div>
         {/* Search Bar */}
-        <div className="font-[Inter] w-full  relative hidden md:bottom-12  md:w-[60%] mx-auto z-10 bg-white text-black md:flex flex-wrap justify-between items-center rounded-full py-2 px-4 md:p-4 shadow-xl">
+        <div className="font-[Inter] lg:w-[90%] w-full relative block xl:bottom-12 lg:-bottom-6 -bottom-8  xl:w-[60%] mx-auto z-10 bg-white text-black md:flex flex-wrap justify-between items-center lg:rounded-full py-2 px-4 md:p-4 shadow-xl lg:mb-1 mb-2">
           <div className="flex items-start justify-start gap-2  border-r-[1.09px] border-[#E5E7EB]">
             <img src={map} alt="Map icon" className="mt-1 " />
             <div className="flex flex-col">
@@ -75,15 +84,18 @@ export default function HeroSection() {
             <div className="flex flex-col">
               <h3 className="text-black font-semibold">Guests</h3>
               <input
+              
                 type="text"
                 placeholder="Add guests"
                 className="outline-none text-[#6B7280] text-[15.31px] w-full md:w-36 text-sm bg-transparent"
               />
             </div>
           </div>
-          <button className="bg-black text-white font-semibold px-6 py-2 rounded-full flex items-center space-x-2  transition">
+          <button onClick={handleSearch}  className="md:w-fit w-full bg-black text-white font-semibold px-6 py-2 rounded-full flex items-center space-x-2  transition">
             <FiSearch />
            <input
+             value={search}
+        onChange={(e) => setSearch(e.target.value)}
                 type="text"
                 placeholder="Search"
                 className="outline-none w-24 text-white font-extrabold text-base bg-transparent"

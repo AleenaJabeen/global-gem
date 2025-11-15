@@ -8,6 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebookF } from "react-icons/fa";
 import { mail } from "../../assets";
 import { Link } from "react-router-dom";
+import Navbar from "../../layout/Navbar";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -43,6 +44,10 @@ export default function Login() {
   };
 
   return (
+    <>
+        <Navbar navStyle="text-[#1C1C1E] bg-white" buttonBg="bg-[#1C1C1E] text-[#F2F2F7]"/>
+    
+   
     <div
       id="hero-section"
       className="min-h-screen bg-white flex items-center justify-center px-4 mt-10"
@@ -156,5 +161,6 @@ export default function Login() {
         </p>
       </div>
     </div>
+     </>
   );
 }

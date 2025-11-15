@@ -105,6 +105,10 @@ export default function CreateAccount() {
   }, [emailVerified]);
 
   return (
+    <>
+            <Navbar navStyle="text-[#1C1C1E] bg-white" buttonBg="bg-[#1C1C1E] text-[#F2F2F7]"/>
+
+   
     <div className="min-h-screen flex justify-center bg-white py-10 px-4">
       <form  className="lg:max-w-5xl w-full lg:p-8 md:p-6 p-4 space-y-2">
         <h2 className="md:text-[33px] text-2xl font-[Inter] text-[#1C1C1E] font-semibold">
@@ -370,6 +374,6 @@ export default function CreateAccount() {
        <EmailVerification/>
       )}
     </div>
-   
+    </>
   );
 }

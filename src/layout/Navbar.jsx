@@ -1,52 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar(props) {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [onWhiteHero, setOnWhiteHero] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-
-      // Detect hero section color
-      const hero = document.getElementById("hero-section");
-      if (hero) {
-        const heroHeight = hero.offsetHeight;
-        // if we are within hero section range
-        if (window.scrollY < heroHeight - 100) {
-          // read hero background color (white or dark)
-          const bgColor = window.getComputedStyle(hero).backgroundColor;
-          // simple detection: if background is light, switch text to black
-          const isLight =
-            bgColor.includes("255, 255, 255") || bgColor.includes("240");
-          setOnWhiteHero(isLight);
-        } else {
-          setOnWhiteHero(false);
-        }
-      }
-    };
-
-    handleScroll(); // initialize on load
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+ 
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  // Determine navbar style
-  const navStyle = onWhiteHero && !isScrolled
-    ? "bg-white text-black"
-    : isScrolled
-    ? "bg-white text-black shadow-lg"
-    : "bg-black text-white";
+ 
 
   return (
     <nav
-      className={`font-[Mulish] w-full transition-all duration-300 ${navStyle}`}
+      className={`font-[Mulish] w-full transition-all duration-300 ${props.navStyle}`}
     >
       <div className="w-full mx-auto flex justify-between items-center md:px-12 px-6 py-4">
         <div className="text-2xl font-bold tracking-wide font-[Nico_Moji]">
@@ -74,7 +42,7 @@ export default function Navbar() {
           <p className="cursor-pointer hover:text-gray-400">Become a Host</p>
           <button
             onClick={() => navigate("/login")}
-            className="hidden md:block bg-white text-black font-semibold px-5 py-2 rounded-full hover:bg-gray-500 hover:text-black transition"
+            className={`hidden md:block ${props.buttonBg?props.buttonBg:"bg-white text-[#1F1F1F]"}   font-semibold px-5 py-2 rounded-full hover:bg-gray-500 hover:text-black transition`}
           >
             Sign In
           </button>

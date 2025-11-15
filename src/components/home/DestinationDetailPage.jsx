@@ -1,4 +1,4 @@
-import { FiMapPin } from "react-icons/fi";
+import { useState } from "react";
 import { IoIosStar } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import {
@@ -12,6 +12,8 @@ import {
   homeIcon,
   person2,
   send,
+  info,
+  flag,
 } from "../../assets";
 import { HiMiniMapPin } from "react-icons/hi2";
 import Description from "./Description";
@@ -19,13 +21,34 @@ import { MdOutlineVerifiedUser } from "react-icons/md";
 import CustomerReviews from "./CustomerReviews";
 import Map from "./Map";
 import FamousPlaces from "./FamousPlaces";
+import Navbar from '../../layout/Navbar'
 
 export default function DestinationDetailPage() {
   const navigate = useNavigate();
+   const [adults, setAdults] = useState(1);
+  const [children, setChildren] = useState(0);
+
+  const pricePerPerson = 75;
+
+  // **Fixed charges**
+  const discount = 28;
+  const cleaningFee = 62;
+  const serviceFee = 83;
+  const taxes = 29;
+
+  // **Dynamic calculation**
+  const totalPeople = adults + children;
+  const basePrice = totalPeople * pricePerPerson;
+
+  const total =
+    basePrice - discount + cleaningFee + serviceFee + taxes;
+
 
   return (
-    <div className="font-[Poppins] bg-white min-h-screen flex flex-col items-center px-6 py-10 lg:px-16">
-      <div className="max-w-6xl w-full">
+    <>
+    <Navbar navStyle="text-[#1C1C1E] bg-white" buttonBg="bg-[#1C1C1E] text-[#F2F2F7]"/>
+    <div className="font-[Mulish] bg-white min-h-screen flex flex-col items-center px-6 py-10 lg:px-16">
+      <div className="w-full">
         {/* <button
           onClick={() => navigate(-1)}
           className="mb-4 text-gray-600 hover:text-black"
@@ -171,61 +194,106 @@ export default function DestinationDetailPage() {
             </div>
           </div>
           {/* Column 2 */}
-          <div className="font-[Mulish] md:w-[30%] w-full border border-[#E5E7EB] rounded-md shadow-lg p-5 h-fit">
-            <div className="flex justify-between items-center mb-2">
-              <h3 className="text-xl text-black font-bold">
-                <span className="underline">$75 / </span>
-                <span className="text-[#6B7280] font-normal text-sm">
-                  person
-                </span>
-              </h3>
-              <div className="flex items-center text-black">
-                <IoIosStar />{" "}
-                <span className="text-base font-medium ml-1">
-                  4.8 .<span className="underline">7 reviews</span>
-                </span>
-              </div>
-            </div>
+          <div className="md:w-[30%] w-full">
+           <div className="font-[Mulish] border border-[#E5E7EB] rounded-md shadow-lg p-5 h-fit">
+      <div className="flex justify-between items-center mb-2">
+        <h3 className="text-xl text-black font-bold">
+          <span className="border-b border-b-2">$75 / </span>
+          <span className="text-[#6B7280] font-normal text-sm">person</span>
+        </h3>
 
-            <div className="flex justify-between items-center text-sm text-gray-600 mb-3">
-              <span>From:</span>
-              <input type="date" className="border rounded p-1" />
-            </div>
-            <div className="flex justify-between items-center text-sm text-gray-600 mb-3">
-              <span>To:</span>
-              <input type="date" className="border rounded p-1" />
-            </div>
-             <button className="w-full bg-black text-white text-sm py-3 my-5 rounded-full font-medium font-[Inter] hover:bg-gray-900">
-              Book Now
-            </button>
+        <div className="flex items-center text-black">
+          <IoIosStar />
+          <span className="text-base font-medium ml-1">
+            4.8 .<span className="border-b border-b-2">7 reviews</span>
+          </span>
+        </div>
+      </div>
 
-            <div className="flex justify-between text-gray-700 text-sm mb-2">
-              <span>$75 × 2 people</span>
-              <span>$555</span>
-            </div>
-            <div className="flex justify-between text-gray-700 text-sm mb-2">
-              <span>Discount</span>
-              <span>-$28</span>
-            </div>
-            <div className="flex justify-between text-gray-700 text-sm mb-2">
-              <span>Cleaning fee</span>
-              <span>$62</span>
-            </div>
-            <div className="flex justify-between text-gray-700 text-sm mb-2">
-              <span>Service fee</span>
-              <span>$83</span>
-            </div>
-            <div className="flex justify-between text-gray-700 text-sm mb-3">
-              <span>Taxes & fees</span>
-              <span>$29</span>
-            </div>
-            <hr className="my-2" />
-            <div className="flex justify-between font-bold text-gray-900 mb-4">
-              <span>Total</span>
-              <span>$701</span>
-            </div>
+      {/* Input Section */}
+      <div className="font-[Mulish] flex flex-col border border-[#D1D5DB] rounded-md mb-3">
+        <div className="w-full flex items-center justify-between gap-2 border-b border-[#D1D5DB] pr-2 px-2">
+          <div className="w-1/2 flex flex-col border-r border-[#D1D5DB]">
+            <span className="py-1 text-xs text-black font-bold">From:</span>
+            <input
+              type="date"
+              className="w-full text-[#6B7280] text-sm focus:outline-none appearance-none"
+            />
+          </div>
+          <div className="w-1/2 flex flex-col">
+            <span className="py-1 text-xs text-black font-bold">To:</span>
+            <input
+              type="date"
+              className="w-full text-[#6B7280] text-sm focus:outline-none appearance-none"
+            />
+          </div>
+        </div>
 
-           
+        {/* Adults & Children */}
+        <div className="w-full flex items-center justify-between gap-2 pr-2 px-2">
+          <div className="w-1/2 flex flex-col border-r border-[#D1D5DB]">
+            <span className="py-1 text-xs text-black font-bold">Adults</span>
+            <input
+              type="number"
+              value={adults}
+              min={0}
+              onChange={(e) => setAdults(Number(e.target.value))}
+              className="w-full text-[#6B7280] text-sm focus:outline-none appearance-none"
+            />
+          </div>
+          <div className="w-1/2 flex flex-col">
+            <span className="py-1 text-xs text-black font-bold">Children</span>
+            <input
+              type="number"
+              value={children}
+              min={0}
+              onChange={(e) => setChildren(Number(e.target.value))}
+              className="w-full text-[#6B7280] text-sm focus:outline-none appearance-none"
+            />
+          </div>
+        </div>
+      </div>
+
+      <button className="w-full bg-black text-white text-sm py-3 my-5 rounded-full font-medium font-[Inter] hover:bg-gray-900">
+        Book Now
+      </button>
+
+      {/* Price Breakdown */}
+      <p className="text-sm text-[#6B7280] font-[Mulish] mb-2">You won’t be charged yet</p>
+
+      <div className="font-[Mulish] text-black flex justify-between text-base mb-2">
+        <span>${pricePerPerson} × {totalPeople} people</span>
+        <span>${basePrice}</span>
+      </div>
+
+      <div className="font-[Mulish] text-black flex justify-between text-base mb-2">
+        <span>Discount</span>
+        <span className="text-[#00C48C]">-${discount}</span>
+      </div>
+
+      <div className="font-[Mulish] text-black flex justify-between text-base mb-2">
+        <span>Cleaning fee</span>
+        <span>${cleaningFee}</span>
+      </div>
+
+      <div className="font-[Mulish] text-black flex justify-between text-base mb-2">
+        <span>Service fee</span>
+        <span>${serviceFee}</span>
+      </div>
+
+      <div className="font-[Mulish] text-black flex justify-between text-base mb-5">
+        <span>Taxes & fees</span>
+        <span>${taxes}</span>
+      </div>
+
+      <hr className="my-2 text-[#E5E7EB] mb-4" />
+
+      <div className="font-[Mulish] flex justify-between font-bold text-[#1C2B38] mb-2">
+        <span>Total</span>
+        <span>${total}</span>
+      </div>
+    </div>
+          <div className="flex mt-2  items-center justify-center text-[#6B7280] underline text-sm font-[Mulish]"><img src={flag} alt="Flag" />Report this listing</div>
           </div>
         </div>
         <div className="md:w-[72%] w-full">
@@ -241,5 +309,6 @@ export default function DestinationDetailPage() {
         <CustomerReviews />
       </div>
     </div>
+    </>
   );
 }
