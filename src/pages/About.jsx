@@ -9,7 +9,7 @@ import Navbar from "../layout/Navbar";
 function About() {
   return (
     <div>
-      <Navbar navStyle="bg-gradient-to-r bg-black from-[#04153400] to-[#041534] text-white" />
+      <Navbar navStyle="bg-gradient-to-b bg-black from-[#04153400] to-[#041534] text-white" />
       <HeroSection title="About Us" />
       <TravelStatsSection />
       <BecomeHost />
