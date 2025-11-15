@@ -10,7 +10,7 @@ import visa from './LayoutAssets/visa.svg'
 import sofort from './LayoutAssets/sofort.svg';
 import googlepay from './LayoutAssets/googlepay.svg'
 import applepay from './LayoutAssets/applepay.svg';
-import mail from './LayoutAssets/mail.svg'
+import mail from './LayoutAssets/Mail.svg'
 import person from './LayoutAssets/person.svg';
 import arrowIcon from './LayoutAssets/arrowIcon.svg';
 import emailVerify from './LayoutAssets/emailVerify.svg';
