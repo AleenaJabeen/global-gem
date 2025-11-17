@@ -86,10 +86,20 @@ import mastercard2 from './ProfileAssets/mastercard2.svg'
 import applePay2 from './ProfileAssets/applePay2.svg';
 import editBtn from './ProfileAssets/editBtn.svg';
 import success from './ProfileAssets/success.svg';
+import experience from './ProfileAssets/experience.svg'
+
+// traveler assets
+import chat1 from './TravelerAssets/chat1.jpg';
+import chat2 from './TravelerAssets/chat2.jpg';
+import chat3 from './TravelerAssets/chat3.jpg';
+import mic from './TravelerAssets/mic.svg';
+
+// travler
+export {chat1,chat2,chat3,mic}
 
 // profile 
 
-export {cake,sliders,trash,booking,googlePay,mastercard2,applePay2,editBtn,success};
+export {cake,sliders,trash,booking,googlePay,mastercard2,applePay2,editBtn,success,experience};
 
 
 

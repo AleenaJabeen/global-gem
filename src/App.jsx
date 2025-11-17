@@ -11,6 +11,8 @@ import DestinationDetailPage from "./components/home/DestinationDetailPage";
 import CityListing from "./components/CityListing/CityListing";
 import ProfilePage from "./components/profile/ProfilePage";
 import BookingSummary from "./components/profile/BookingSummary";
+import ChatBox from "./components/travelerView/ChatBox";
+import GuideProfile from "./components/travelerView/GuideProfile";
 function App() {
   return (
     <>
@@ -28,6 +30,8 @@ function App() {
             <Route path="city-listing" element={<CityListing />} />
              <Route path="profile" element={<ProfilePage />} />
               <Route path="booking-summary" element={<BookingSummary />} />
+               <Route path="inbox" element={<ChatBox />} />
+               <Route path="guide" element={<GuideProfile />} />
           </Route>
         </Routes>
       </BrowserRouter>
