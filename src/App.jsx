@@ -9,6 +9,8 @@ import Login from "./components/signup/Login";
 import CreateAccount from "./components/signup/CreateAccount";
 import DestinationDetailPage from "./components/home/DestinationDetailPage";
 import CityListing from "./components/CityListing/CityListing";
+import ProfilePage from "./components/profile/ProfilePage";
+import BookingSummary from "./components/profile/BookingSummary";
 function App() {
   return (
     <>
@@ -24,6 +26,8 @@ function App() {
             <Route path="signup" element={<CreateAccount />} />
             <Route path="detail" element={<DestinationDetailPage />} />
             <Route path="city-listing" element={<CityListing />} />
+             <Route path="profile" element={<ProfilePage />} />
+              <Route path="booking-summary" element={<BookingSummary />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -42,7 +42,7 @@ export default function Navbar(props) {
           <p className="cursor-pointer hover:text-gray-400">Become a Host</p>
           <button
             onClick={() => navigate("/login")}
-            className={`hidden md:block ${props.buttonBg?props.buttonBg:"bg-white text-[#1F1F1F]"}   font-semibold px-5 py-2 rounded-full hover:bg-gray-500 hover:text-black transition`}
+            className={`hidden md:block cursor-pointer ${props.buttonBg?props.buttonBg:"bg-white text-[#1F1F1F]"}   font-semibold px-5 py-2 rounded-full transition`}
           >
             Sign In
           </button>
@@ -81,7 +81,7 @@ export default function Navbar(props) {
               navigate("/login");
               toggleMenu();
             }}
-            className="w-full bg-white text-black font-semibold py-2 rounded-full hover:bg-[#03CDE5] hover:text-white transition"
+            className="w-full cursor-pointer bg-white text-black font-semibold py-2 rounded-full transition"
           >
             Sign In
           </button>

@@ -23,16 +23,16 @@ const DestinyCard = ({ title, location, image }) =>{
       <div className="absolute inset-0 bg-gradient-to-b from-[#01121900]  to-[#011219]" />
     </div>   
        {/* Wishlist (Heart) Button */}
-              <button
-                onClick={handleWishlistToggle}
-                className="absolute top-3 right-3 bg-white rounded-full p-3 shadow-md z-20 transition-transform duration-200 hover:scale-110"
-              >
-                {isWishlisted ? (
-                  <AiFillHeart className="text-red-500 text-2xl" />
-                ) : (
-                  <img src={wishlist} alt="Add to Wishlist" className="w-6 h-6" />
-                )}
-              </button>
+             <button
+          onClick={handleWishlistToggle}
+          className={`${isWishlisted?"bg-[#FF6B6B]":"bg-white"} absolute top-3 right-3 w-12 h-12 flex items-center justify-center  rounded-full p-3 shadow-md z-20 transition-transform duration-200 hover:scale-110`}
+        >
+          {isWishlisted ? (
+            <AiFillHeart className="cursor-pointer text-white rounded-full text-2xl" />
+          ) : (
+            <img src={wishlist} alt="Add to Wishlist" className="cursor-pointer w-full" />
+          )}
+        </button>
     {/* Text content */}
     <div className="absolute bottom-16 left-4 text-white z-10">
       <h3 className="text-[22px] font-bold drop-shadow-md">{title}</h3>

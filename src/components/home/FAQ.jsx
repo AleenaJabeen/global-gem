@@ -42,9 +42,9 @@ export default function FAQ() {
             >
               <span className="text-xs sm:text-base font-extrabold">{item.q}</span>
               {openIndex === idx ? (
-                <FiMinus className="" />
+                <FiMinus className="cursor-pointer" />
               ) : (
-                <FiPlus className="" />
+                <FiPlus className="cursor-pointer" />
               )}
             </button>
 

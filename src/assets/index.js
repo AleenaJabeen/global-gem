@@ -74,8 +74,22 @@ import destinationCard from './PackageAssets/DestinationCard.jpg';
 import destinationCard2 from './PackageAssets/DestinationCard2.jpg';
 import discover1 from './PackageAssets/discover1.jpg';
 import discover2 from './PackageAssets/discover2.jpg';
-import aboutus from './AboutAssets/aboutus.jpg'
+import aboutus from './AboutAssets/aboutus.jpg';
 
+// profile assets
+import cake from './ProfileAssets/cake.svg'
+import sliders from './ProfileAssets/sliders.svg';
+import trash from './ProfileAssets/trash.svg'
+import booking from './ProfileAssets/booking.png';
+import googlePay from './ProfileAssets/googlePay.svg';
+import mastercard2 from './ProfileAssets/mastercard2.svg'
+import applePay2 from './ProfileAssets/applePay2.svg';
+import editBtn from './ProfileAssets/editBtn.svg';
+import success from './ProfileAssets/success.svg';
+
+// profile 
+
+export {cake,sliders,trash,booking,googlePay,mastercard2,applePay2,editBtn,success};
 
 
 

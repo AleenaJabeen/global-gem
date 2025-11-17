@@ -29,9 +29,9 @@ export default function PlanCard({ image, title, price, reviews }) {
           className={`${isWishlisted?"bg-[#FF6B6B]":"bg-white"} absolute top-3 right-3 w-12 h-12 flex items-center justify-center  rounded-full p-3 shadow-md z-20 transition-transform duration-200 hover:scale-110`}
         >
           {isWishlisted ? (
-            <AiFillHeart className="text-white rounded-full text-2xl" />
+            <AiFillHeart className="cursor-pointer text-white rounded-full text-2xl" />
           ) : (
-            <img src={wishlist} alt="Add to Wishlist" className="w-full" />
+            <img src={wishlist} alt="Add to Wishlist" className="cursor-pointer w-full" />
           )}
         </button>
 
@@ -61,7 +61,7 @@ export default function PlanCard({ image, title, price, reviews }) {
             </div>
           </div>
 
-          <button  onClick={() => navigate("/detail")} className="font-[Mulish] w-[75%] mx-auto bg-white text-[#141414] font-extrabold py-2 rounded-full mt-5">
+          <button  onClick={() => navigate("/detail")} className="cursor-pointer font-[Mulish] w-[75%] mx-auto bg-white text-[#141414] font-extrabold py-2 rounded-full mt-5">
             See detail
           </button>
         </div>

@@ -58,7 +58,7 @@ export default function BecomeAHost() {
               </li>
             </ul>
 
-            <button className="bg-white text-[#141414] text-base font-extrabold px-6  py-3 rounded-full shadow-md shadow-[#1F293714] w-fit hover:bg-gray-200 transition mb-8">
+            <button className="cursor-pointer bg-white text-[#141414] text-base font-extrabold px-6  py-3 rounded-full shadow-md shadow-[#1F293714] w-fit hover:bg-gray-200 transition mb-8">
               Become a Host
             </button>
           </div>
