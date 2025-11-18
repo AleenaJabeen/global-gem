@@ -94,6 +94,12 @@ import chat2 from './TravelerAssets/chat2.jpg';
 import chat3 from './TravelerAssets/chat3.jpg';
 import mic from './TravelerAssets/mic.svg';
 
+// host assets
+import profile from './HostAssets/profile.jpg';
+
+// host
+export {profile};
+
 // travler
 export {chat1,chat2,chat3,mic}
 

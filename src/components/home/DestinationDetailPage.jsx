@@ -14,6 +14,7 @@ import {
   send,
   info,
   flag,
+  wishlist,
 } from "../../assets";
 import { HiMiniMapPin } from "react-icons/hi2";
 import Description from "./Description";
@@ -22,6 +23,7 @@ import CustomerReviews from "./CustomerReviews";
 import Map from "./Map";
 import FamousPlaces from "./FamousPlaces";
 import Navbar from "../../layout/Navbar";
+import { IoShareSocialOutline } from "react-icons/io5";
 
 export default function DestinationDetailPage() {
   const navigate = useNavigate();
@@ -43,6 +45,11 @@ export default function DestinationDetailPage() {
   const basePrice = totalPeople * pricePerPerson;
 
   const total = basePrice - discount + cleaningFee + serviceFee + taxes;
+    const [isWishlisted, setIsWishlisted] = useState(false);
+
+  const handleWishlistToggle = () => {
+    setIsWishlisted((prev) => !prev);
+  };
 
   return (
     <>
@@ -59,9 +66,23 @@ export default function DestinationDetailPage() {
           ← Back
         </button> */}
 
-          <h1 className="font-[Mulish] text-[33px] md:text-4xl font-medium mb-2">
-            Hidden Waterfalls of Ubud
-          </h1>
+          <div className="flex md:flex-row flex-col md:justify-between md:items-center mb-2">
+            <h1 className="font-[Mulish] text-[33px] md:text-4xl font-medium mb-2">
+              Hidden Waterfalls of Ubud
+            </h1>
+            <div className="flex items-center lg:justify-end gap-2 text-[10px] font-[Inter] text-white">
+              <p className="bg-[#515151]  rounded-[5.5px]  py-1 px-4 text-center">
+              Nature
+              </p>
+              <p className="bg-[#515151]  rounded-[5.5px] px-4 py-1 text-center">
+               Waterfall
+              </p>
+               <p className="bg-[#515151]  rounded-[5.5px] px-4 py-1 text-center">
+              Guide Hike
+              </p>
+            </div>
+          </div>
+          <div className="flex md:flex-row flex-col md:justify-between md:items-center mb-2">
           <div className="flex items-center text-black font-medium mb-4 text-sm md:text-base">
             <IoIosStar className="text-black" />
             <span className="ml-1">
@@ -69,6 +90,24 @@ export default function DestinationDetailPage() {
             </span>
             <HiMiniMapPin className="mx-1 text-black" />
             <span className="underline">Ubud,Bali</span>
+          </div>
+          <div className="flex items-center gap-2 text-base font-[Mulish] font-medium text-black">
+          <p className="flex items-center gap-2"><IoShareSocialOutline className="text-2xl text-black" />Share</p>
+          <p className="flex items-center gap-2">
+           <button
+                    onClick={handleWishlistToggle}
+                    className={`${isWishlisted?"bg-[#FF6B6B]":"bg-white"} absolute top-3 right-3 w-12 h-12 flex items-center justify-center  rounded-full p-3 shadow-md z-20 transition-transform duration-200 hover:scale-110`}
+                  >
+                    {isWishlisted ? (
+                      <AiFillHeart className="cursor-pointer text-white rounded-full text-2xl" />
+                    ) : (
+                      <img src={wishlist} alt="Add to Wishlist" className="cursor-pointer w-full" />
+                    )}
+                 
+                  </button>
+                  Save
+                  </p>
+                  </div>
           </div>
 
           {/* Images */}

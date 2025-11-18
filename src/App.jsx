@@ -13,6 +13,8 @@ import ProfilePage from "./components/profile/ProfilePage";
 import BookingSummary from "./components/profile/BookingSummary";
 import ChatBox from "./components/travelerView/ChatBox";
 import GuideProfile from "./components/travelerView/GuideProfile";
+import TravelerProfileGuide from "./components/hostView/TravelerProfileGuide";
+import TravelerProfilePage from "./components/hostView/TravelerProfilePage";
 function App() {
   return (
     <>
@@ -28,10 +30,10 @@ function App() {
             <Route path="signup" element={<CreateAccount />} />
             <Route path="detail" element={<DestinationDetailPage />} />
             <Route path="city-listing" element={<CityListing />} />
-             <Route path="profile" element={<ProfilePage />} />
+             <Route path="profile" element={<TravelerProfilePage/>} />
               <Route path="booking-summary" element={<BookingSummary />} />
                <Route path="inbox" element={<ChatBox />} />
-               <Route path="guide" element={<GuideProfile />} />
+               <Route path="guide" element={<TravelerProfileGuide />} />
           </Route>
         </Routes>
       </BrowserRouter>
