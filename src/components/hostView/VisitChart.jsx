@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
-
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  CartesianGrid,
+} from "recharts";
 
 const dataWeek = [
   { day: "Sun 12", new: 1500, unique: 900, old: 700 },
@@ -18,6 +25,7 @@ const dataYear = dataWeek.map((d) => ({ ...d, new: d.new * 10, unique: d.unique 
 
 export default function VisitChart() {
   const [filter, setFilter] = useState("Week");
+  const [open, setOpen] = useState(false);
 
   const getData = () => {
     if (filter === "Month") return dataMonth;
@@ -26,43 +34,73 @@ export default function VisitChart() {
   };
 
   return (
-    <div className="w-full bg-[#111] text-white p-4 rounded-xl shadow-lg">
-      <div className="flex items-center justify-between mb-5">
-        <h2 className="text-lg font-semibold">Visitors Overview</h2>
+    <div className="w-full bg-[#1F1F1F] text-white p-4 rounded-xl shadow-lg">
+      <div className="flex items-center justify-end mb-5">
         <div className="relative inline-block text-left">
-          <button className="flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-lg text-sm">
-            {filter} <FaChevronDown size={16} />
+          
+          {/* Dropdown Button */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="flex items-center gap-2 bg-white text-[#1C1C1E] px-4 py-2 font-[Inter] font-medium rounded-lg text-xs"
+          >
+            {filter} <FaChevronDown size={12} />
           </button>
-          <div className="absolute right-0 mt-2 w-32 bg-gray-900 rounded-lg shadow-xl border border-gray-700">
-            {['Week', 'Month', 'Year'].map((item) => (
-              <button
-                key={item}
-                onClick={() => setFilter(item)}
-                className="w-full text-left px-4 py-2 hover:bg-gray-800 text-sm"
-              >
-                {item}
-              </button>
-            ))}
-          </div>
+
+          {/* DROPDOWN MENU */}
+          {open && (
+            <div className="absolute right-0 mt-2 w-32 bg-white text-[#1C1C1E] rounded-lg shadow-xl  z-10">
+              {["Week", "Month", "Year"].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => {
+                    setFilter(item);
+                    setOpen(false); // close dropdown when selecting
+                  }}
+                  className="w-full text-left px-4 py-2  text-xs"
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
-      <div className="flex gap-6 mb-4 text-sm">
-        <div className="flex items-center gap-2"><span className="w-4 h-4 bg-gray-400 rounded-sm"></span> New Visit</div>
-        <div className="flex items-center gap-2"><span className="w-4 h-4 bg-gray-500 rounded-sm"></span> Unique Visit</div>
-        <div className="flex items-center gap-2"><span className="w-4 h-4 bg-gray-600 rounded-sm"></span> Old Visit</div>
+      <div className="flex gap-6 mb-6 -mt-8 pl-6 text-sm">
+        <div className="flex items-center gap-2">
+          <span className="w-6 h-4 bg-[#9999A7]"></span> New Visit
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="w-6 h-4 bg-[#FFFFFF]/40"></span> Unique Visit
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="w-6 h-4 bg-[#FFFFFF]/60"></span> Old Visit
+        </div>
       </div>
 
-      <div className="w-full h-80">
+      <div className="w-full h-70">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={getData()} barGap={15}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#444" />
-            <XAxis dataKey="day" stroke="#bbb" />
-            <YAxis stroke="#bbb" />
-            <Tooltip contentStyle={{ backgroundColor: '#222', border: 'none' }} />
-            <Bar dataKey="new" fill="#a3a3b5" radius={[10, 10, 0, 0]} />
-            <Bar dataKey="unique" fill="#8a8a95" radius={[10, 10, 0, 0]} />
-            <Bar dataKey="old" fill="#6f6f7a" radius={[10, 10, 0, 0]} />
+            <CartesianGrid strokearray="1 1" stroke="#ffffff36" horizontal={true} vertical={false} />
+            <XAxis dataKey="day" stroke="#ffffff8c" padding={{ left: 20, right: 20 }}/>
+            <YAxis stroke="#ffffff" padding={{ top: 20, bottom: 20 }} />
+
+            {/* Transparent Tooltip */}
+            <Tooltip
+              contentStyle={{
+                background: "#1f1f1f",
+                border: "none",
+                boxShadow: "none",
+              }}
+              wrapperStyle={{
+                background: "transparent",
+              }}
+              labelStyle={{ color: "#fff" }}
+            />
+
+            <Bar dataKey="new" fill="#9999A7" radius={[10, 10, 0, 0]} />
+            <Bar dataKey="unique" fill="#ffffffc1" radius={[10, 10, 0, 0]} />
+            <Bar dataKey="old" fill="#ffffffa6" radius={[10, 10, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

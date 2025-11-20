@@ -1,16 +1,14 @@
-import React, { useState} from "react";
+import React, { useState,useContext} from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Navbar(props) {
+   // context of login
+     const { isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
-
- 
-
   const toggleMenu = () => setMenuOpen(!menuOpen);
-
- 
 
   return (
     <nav
@@ -40,12 +38,20 @@ export default function Navbar(props) {
 
         <div className="hidden lg:flex items-center gap-4">
           <p className="cursor-pointer hover:text-gray-400">Become a Host</p>
+           {!isLoggedIn ? (
           <button
             onClick={() => navigate("/login")}
             className={`hidden md:block cursor-pointer ${props.buttonBg?props.buttonBg:"bg-white text-[#1F1F1F]"}   font-semibold px-5 py-2 rounded-full transition`}
           >
             Sign In
           </button>
+          ) : (
+            <img
+              onClick={() => navigate("/profile")}
+              src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+              className="w-8 h-8 rounded-full cursor-pointer"
+            />
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -76,6 +82,7 @@ export default function Navbar(props) {
             <Link to="/">Help</Link>
           </p>
           <p className="cursor-pointer">Become a Host</p>
+           {!isLoggedIn ? (
           <button
             onClick={() => {
               navigate("/login");
@@ -85,6 +92,11 @@ export default function Navbar(props) {
           >
             Sign In
           </button>
+           ) : (
+            <p onClick={() => navigate("/profile")} className="cursor-pointer">
+              Profile
+            </p>
+          )}
         </div>
       )}
     </nav>

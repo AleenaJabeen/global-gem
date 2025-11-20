@@ -5,6 +5,7 @@ import { MdOutlineVerifiedUser } from "react-icons/md";
 import { IoIosStar } from "react-icons/io";
 import { BiSolidMap } from "react-icons/bi";
 import OfferedExperiences from "./OfferedExperiences";
+import { Link } from "react-router-dom";
 
 function GuideProfile() {
   return (
@@ -108,7 +109,7 @@ function GuideProfile() {
                 stress, the quality was great but you couldn't enjoy it. I'd
                 like to ask the organisers: please
               </p>
-              <button className="bg-[#1F1F1F] text-white text-center py-2 mt-3 rounded-[15px] font-bold text-lg font-[Inter] md:w-[40%] w-[60%] ">Let’s Talk</button>
+              <Link to="/inbox"  className="bg-[#1F1F1F] text-white text-center py-2 mt-3 rounded-[15px] font-bold text-lg font-[Inter] md:w-[40%] w-[60%] ">Let’s Talk</Link>
             </div>
           </div>
         </div>

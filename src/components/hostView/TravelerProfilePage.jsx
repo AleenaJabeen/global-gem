@@ -128,7 +128,7 @@ export default function TravelerProfilePage() {
     booking: "Booking Information",
     listing: "My Listings",
     notifications: "Manage Notifications",
-    analytics: "Analytics",
+    analytics: "Overview",
   };
 
   const renderComponent = () => {

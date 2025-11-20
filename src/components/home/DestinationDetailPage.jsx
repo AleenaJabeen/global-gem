@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { IoIosStar } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+
 import {
   detail1,
   detail2,
@@ -12,7 +14,6 @@ import {
   homeIcon,
   person2,
   send,
-  info,
   flag,
   wishlist,
 } from "../../assets";
@@ -27,6 +28,7 @@ import { IoShareSocialOutline } from "react-icons/io5";
 
 export default function DestinationDetailPage() {
   const navigate = useNavigate();
+  const { isLoggedIn } = useContext(AuthContext);
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [from, setFrom] = useState("");
@@ -45,10 +47,41 @@ export default function DestinationDetailPage() {
   const basePrice = totalPeople * pricePerPerson;
 
   const total = basePrice - discount + cleaningFee + serviceFee + taxes;
-    const [isWishlisted, setIsWishlisted] = useState(false);
+  const [isWishlisted, setIsWishlisted] = useState(false);
 
   const handleWishlistToggle = () => {
     setIsWishlisted((prev) => !prev);
+  };
+
+  const handleBooking = () => {
+    if (!isLoggedIn) {
+      navigate("/login");
+      return;
+    }
+
+    navigate("/booking-summary", {
+      state: {
+        title: "Hidden Waterfalls of Ubud",
+        category: "Beach",
+        location: "Ubud, Bali",
+        image: detail1,
+        from,
+        to,
+        adults,
+        children,
+        pricePerPerson,
+        discount,
+        cleaningFee,
+        serviceFee,
+        taxes,
+        total,
+        host: {
+          name: "Wayan Suta",
+          languages: ["English", "Indonesian"],
+          reviews: 167,
+        },
+      },
+    });
   };
 
   return (
@@ -72,42 +105,50 @@ export default function DestinationDetailPage() {
             </h1>
             <div className="flex items-center lg:justify-end gap-2 text-[10px] font-[Inter] text-white">
               <p className="bg-[#515151]  rounded-[5.5px]  py-1 px-4 text-center">
-              Nature
+                Nature
               </p>
               <p className="bg-[#515151]  rounded-[5.5px] px-4 py-1 text-center">
-               Waterfall
+                Waterfall
               </p>
-               <p className="bg-[#515151]  rounded-[5.5px] px-4 py-1 text-center">
-              Guide Hike
+              <p className="bg-[#515151]  rounded-[5.5px] px-4 py-1 text-center">
+                Guide Hike
               </p>
             </div>
           </div>
           <div className="flex md:flex-row flex-col md:justify-between md:items-center mb-2">
-          <div className="flex items-center text-black font-medium mb-4 text-sm md:text-base">
-            <IoIosStar className="text-black" />
-            <span className="ml-1">
-              4.8 · <span className="underline">7 reviews</span> ·
-            </span>
-            <HiMiniMapPin className="mx-1 text-black" />
-            <span className="underline">Ubud,Bali</span>
-          </div>
-          <div className="flex items-center gap-2 text-base font-[Mulish] font-medium text-black">
-          <p className="flex items-center gap-2"><IoShareSocialOutline className="text-2xl text-black" />Share</p>
-          <p className="flex items-center gap-2">
-           <button
-                    onClick={handleWishlistToggle}
-                    className={`${isWishlisted?"bg-[#FF6B6B]":"bg-white"} absolute top-3 right-3 w-12 h-12 flex items-center justify-center  rounded-full p-3 shadow-md z-20 transition-transform duration-200 hover:scale-110`}
-                  >
-                    {isWishlisted ? (
-                      <AiFillHeart className="cursor-pointer text-white rounded-full text-2xl" />
-                    ) : (
-                      <img src={wishlist} alt="Add to Wishlist" className="cursor-pointer w-full" />
-                    )}
-                 
-                  </button>
-                  Save
-                  </p>
-                  </div>
+            <div className="flex items-center text-black font-medium mb-4 text-sm md:text-base">
+              <IoIosStar className="text-black" />
+              <span className="ml-1">
+                4.8 · <span className="underline">7 reviews</span> ·
+              </span>
+              <HiMiniMapPin className="mx-1 text-black" />
+              <span className="underline">Ubud,Bali</span>
+            </div>
+            <div className="flex items-center gap-2 text-base font-[Mulish] font-medium text-black">
+              <p className="flex items-center gap-2">
+                <IoShareSocialOutline className="text-2xl text-black" />
+                Share
+              </p>
+              <p className="flex items-center gap-2">
+                <button
+                  onClick={handleWishlistToggle}
+                  className={`${
+                    isWishlisted ? "bg-[#FF6B6B]" : "bg-white"
+                  } absolute top-3 right-3 w-12 h-12 flex items-center justify-center  rounded-full p-3 shadow-md z-20 transition-transform duration-200 hover:scale-110`}
+                >
+                  {isWishlisted ? (
+                    <AiFillHeart className="cursor-pointer text-white rounded-full text-2xl" />
+                  ) : (
+                    <img
+                      src={wishlist}
+                      alt="Add to Wishlist"
+                      className="cursor-pointer w-full"
+                    />
+                  )}
+                </button>
+                Save
+              </p>
+            </div>
           </div>
 
           {/* Images */}
@@ -160,10 +201,16 @@ export default function DestinationDetailPage() {
                         </div>
                       </div>
                       <div className="flex items-center gap-4 pl-6">
-                        <img src={person2} alt="User icon" />
-                        <img src={send} alt="Send icon" className="w-5" />
+                        {!isLoggedIn && (
+                          <>
+                            <img src={person2} alt="User icon" />
+                            <img src={send} alt="Send icon" className="w-5" />
+                          </>
+                        )}
                       </div>
+                     
                     </div>
+                   
                     <div className="flex flex-col gap-1 text-[#6B7280] font-[Mulish] text-sm">
                       <div className="flex items-center gap-1">
                         <h3 className="flex items-center gap-1">
@@ -187,6 +234,18 @@ export default function DestinationDetailPage() {
                       </div>
                     </div>
                   </div>
+                    <div className="flex items-center gap-3">
+                        {isLoggedIn && (
+                          <>
+                            <button onClick={()=>navigate("/inbox")} className="bg-[#9999A7]  sm:w-36 w-24 rounded-full text-white text-xs font-bold p-3">
+                              Chat 
+                            </button>
+                            <button onClick={()=>navigate("/view-profile")} className="border border-[#1F1F1F] sm:w-36 w-24 text-nowrap rounded-full text-[#1F1F1F] text-xs font-bold p-3">
+                              View Profile
+                            </button>
+                          </>
+                        )}
+                      </div>
 
                   <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 mt-4">
                     <div className="flex items-start gap-3">
@@ -312,32 +371,7 @@ export default function DestinationDetailPage() {
                 </div>
 
                 <button
-                  onClick={() =>
-                    navigate("/booking-summary", {
-                      state: {
-                        title: "Hidden Waterfalls of Ubud",
-                        category: "Beach",
-                        location: "Ubud, Bali",
-                        image: detail1,
-                        from,
-                        to,
-                        adults,
-                        children,
-                        pricePerPerson,
-                        discount,
-                        cleaningFee,
-                        serviceFee,
-                        taxes,
-                        total,
-                        host: {
-                          name: "Wayan Suta",
-                          languages: ["English", "Indonesian"],
-                          reviews: 167,
-                        },
-                        userEmail: "Ali@gmail.com", // example
-                      },
-                    })
-                  }
+                  onClick={handleBooking}
                   className="w-full cursor-pointer bg-black text-white text-sm py-3 my-5 rounded-full font-medium font-[Inter] hover:bg-gray-900"
                 >
                   Book Now
