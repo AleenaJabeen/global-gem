@@ -2,6 +2,7 @@ import React, { useState,useContext} from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { host3 } from "../assets";
 
 export default function Navbar(props) {
    // context of login
@@ -48,7 +49,7 @@ export default function Navbar(props) {
           ) : (
             <img
               onClick={() => navigate("/profile")}
-              src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+              src={host3}
               className="w-8 h-8 rounded-full cursor-pointer"
             />
           )}
