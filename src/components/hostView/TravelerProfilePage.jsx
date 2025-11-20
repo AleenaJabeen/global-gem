@@ -126,7 +126,7 @@ export default function TravelerProfilePage() {
   const titles = {
     profile: "Personal Information",
     booking: "Booking Information",
-    listing: "My Listings",
+    listing: "My Listing",
     notifications: "Manage Notifications",
     analytics: "Overview",
   };

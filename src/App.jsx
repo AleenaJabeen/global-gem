@@ -13,6 +13,7 @@ import BookingSummary from "./components/profile/BookingSummary";
 import ChatBox from "./components/travelerView/ChatBox";
 import GuideProfile from './components/travelerView/GuideProfile';
 import TravelerProfileGuide from "./components/hostView/TravelerProfileGuide";
+import TravelerProfilePage from './components/hostView/TravelerProfilePage'
 import ProfilePage from './components/profile/ProfilePage'
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
@@ -34,6 +35,7 @@ function App() {
           <Route path="signup" element={<CreateAccount />} />
           <Route path="detail" element={<DestinationDetailPage />} />
           <Route path="city-listing" element={<CityListing />} />
+          <Route path="list" element={<TravelerProfilePage/>}/>
           {/* Protected Routes — only visible when logged in */}
           {isLoggedIn && (
             <>

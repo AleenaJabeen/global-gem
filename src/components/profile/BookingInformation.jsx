@@ -3,12 +3,14 @@ import { LuSearch } from "react-icons/lu";
 import { booking, sliders, trash, wishlist } from "../../assets";
 import { HiMiniMapPin } from "react-icons/hi2";
 import { AiFillHeart } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const BookingInformation = () => {
   const [activeTab, setActiveTab] = useState("current");
   const [search, setSearch] = useState("");
   const [deleteMode, setDeleteMode] = useState(false);
   const [filter, setFilter] = useState(null);
+  const navigate=useNavigate();
   const currentBookingsData = [
     {
       id: 1,
@@ -178,9 +180,12 @@ const BookingInformation = () => {
       {/* Cards */}
       <div className="flex flex-col gap-4">
         {list.map((card) => (
-          <div
+          <div 
             key={card.id}
-            onClick={() => deleteMode && deleteCard(card.id)}
+            onClick={() => {
+              deleteMode && deleteCard(card.id)
+              navigate("/detail")
+            }}
             className={`flex bg-[#F6F6F6] gap-4 p-4 rounded-[15px] cursor-pointer transition ${
               deleteMode ? "hover:bg-red-100" : "hover:bg-gray-100"
             }`}
