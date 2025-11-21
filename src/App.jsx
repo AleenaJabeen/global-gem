@@ -18,6 +18,7 @@ import ProfilePage from "./components/profile/ProfilePage";
 
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
+import CreateListing from "./components/hostView/CreateListing";
 
 function App() {
   const { isLoggedIn, role } = useContext(AuthContext);
@@ -36,13 +37,15 @@ function App() {
           <Route path="signup" element={<CreateAccount />} />
           <Route path="detail" element={<DestinationDetailPage />} />
           <Route path="city-listing" element={<CityListing />} />
+                 <Route path="create-listing" element={<CreateListing />} />
 
           {/* HOST PROTECTED ROUTES */}
           {role === "host" && (
             <>
-              <Route path="/profile" element={<TravelerProfilePage />} />
-              <Route path="/view-profile" element={<TravelerProfileGuide />} />
+              <Route path="profile" element={<TravelerProfilePage />} />
+              <Route path="view-profile" element={<TravelerProfileGuide />} />
                 <Route path="inbox" element={<ChatBox />} />
+
             </>
           )}
 

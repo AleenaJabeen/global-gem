@@ -6,7 +6,7 @@ import { host3 } from "../assets";
 
 export default function Navbar(props) {
   // context of login
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn ,role} = useContext(AuthContext);
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -38,17 +38,18 @@ export default function Navbar(props) {
         </ul>
 
         <div className="hidden lg:flex items-center gap-4">
-          <p
-            className="cursor-pointer"
-            onClick={() => {
-              navigate("/login?redirect=host");
-            }}
-          >
-            Become a Host
-          </p>
+          {role !== "host" && (
+            <p
+              className="cursor-pointer"
+              onClick={() => navigate("/signup?redirect=host")}
+            >
+              Become a Host
+            </p>
+          )}
+
           {!isLoggedIn ? (
             <button
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/signup?redirect=login")}
               className={`hidden md:block cursor-pointer ${
                 props.buttonBg ? props.buttonBg : "bg-white text-[#1F1F1F]"
               }   font-semibold px-5 py-2 rounded-full transition`}
@@ -59,7 +60,7 @@ export default function Navbar(props) {
             <img
               onClick={() => navigate("/profile")}
               src={host3}
-              className="w-8 h-8 rounded-full cursor-pointer"
+              className="w-10 h-10 rounded-full cursor-pointer"
             />
           )}
         </div>
@@ -91,18 +92,22 @@ export default function Navbar(props) {
           <p onClick={toggleMenu} className="cursor-pointer">
             <Link to="/">Help</Link>
           </p>
-          <p
-            className="cursor-pointer"
-            onClick={() => {
-              navigate("/login?redirect=host");
-            }}
-          >
-            Become a Host
-          </p>
+          {role !== "host" && (
+            <p
+              className="cursor-pointer"
+              onClick={() => {
+                navigate("/signup?redirect=host");
+                toggleMenu();
+              }}
+            >
+              Become a Host
+            </p>
+          )}
+
           {!isLoggedIn ? (
             <button
               onClick={() => {
-                navigate("/login");
+                navigate("/signup?redirect=login");
                 toggleMenu();
               }}
               className="w-full cursor-pointer bg-white text-black font-semibold py-2 rounded-full transition"
