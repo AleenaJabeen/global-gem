@@ -168,7 +168,7 @@ const MyListing = () => {
         {finalList.map((item) => (
           <div
             key={item.id}
-            className="relative flex md:flex-row flex-col md:justify-between md:items-center p-3"
+            className="relative flex md:flex-row bg-[#F6F6F6] rounded-[15px] flex-col md:justify-between md:items-center p-3"
           >
             {/* Left Side Info */}
             <div className="flex flex-row items-center gap-3">

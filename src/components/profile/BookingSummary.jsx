@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { HiMiniMapPin } from "react-icons/hi2";
 import { IoIosStar } from "react-icons/io";
 import Navbar from "../../layout/Navbar";
@@ -224,12 +224,12 @@ export default function BookingSummary() {
                 </div>
 
                 <div className="md:w-[70%] w-full flex gap-3 mt-3">
-                  <button className="w-1/2 bg-[#9999A7] font-bold text-xs text-white  px-4 py-3 rounded-full">
+                  <Link to="/inbox" className="w-1/2  flex items-center justify-center bg-[#9999A7] font-bold text-xs text-white  px-4 py-3 rounded-full">
                     Chat
-                  </button>
-                  <button className="w-1/2 border border-[#1F1F1F] font-[Inter] text-[#1F1F1F] font-bold text-xs px-4 py-3 rounded-full">
+                  </Link>
+                  <Link to="/view-profile" className="w-1/2 flex items-center justify-center border border-[#1F1F1F] font-[Inter] text-[#1F1F1F] font-bold text-xs px-4 py-3 rounded-full">
                     View Profile
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

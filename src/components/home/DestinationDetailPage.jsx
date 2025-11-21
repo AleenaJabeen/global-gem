@@ -25,10 +25,13 @@ import Map from "./Map";
 import FamousPlaces from "./FamousPlaces";
 import Navbar from "../../layout/Navbar";
 import { IoShareSocialOutline } from "react-icons/io5";
+import { AiFillHeart } from "react-icons/ai";
 
 export default function DestinationDetailPage() {
   const navigate = useNavigate();
-  const { isLoggedIn } = useContext(AuthContext);
+  // roles
+  const { isLoggedIn, role } = useContext(AuthContext);
+
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [from, setFrom] = useState("");
@@ -133,8 +136,8 @@ export default function DestinationDetailPage() {
                 <button
                   onClick={handleWishlistToggle}
                   className={`${
-                    isWishlisted ? "bg-[#FF6B6B]" : "bg-white"
-                  } absolute top-3 right-3 w-12 h-12 flex items-center justify-center  rounded-full p-3 shadow-md z-20 transition-transform duration-200 hover:scale-110`}
+                    isWishlisted ? "bg-[#FF6B6B]" : "bg-transparent"
+                  }  w-12 h-12 flex items-center justify-center  rounded-full p-3  transition-transform duration-200 hover:scale-110`}
                 >
                   {isWishlisted ? (
                     <AiFillHeart className="cursor-pointer text-white rounded-full text-2xl" />
@@ -208,9 +211,8 @@ export default function DestinationDetailPage() {
                           </>
                         )}
                       </div>
-                     
                     </div>
-                   
+
                     <div className="flex flex-col gap-1 text-[#6B7280] font-[Mulish] text-sm">
                       <div className="flex items-center gap-1">
                         <h3 className="flex items-center gap-1">
@@ -234,18 +236,24 @@ export default function DestinationDetailPage() {
                       </div>
                     </div>
                   </div>
-                    <div className="flex items-center gap-3">
-                        {isLoggedIn && (
-                          <>
-                            <button onClick={()=>navigate("/inbox")} className="bg-[#9999A7]  sm:w-36 w-24 rounded-full text-white text-xs font-bold p-3">
-                              Chat 
-                            </button>
-                            <button onClick={()=>navigate("/view-profile")} className="border border-[#1F1F1F] sm:w-36 w-24 text-nowrap rounded-full text-[#1F1F1F] text-xs font-bold p-3">
-                              View Profile
-                            </button>
-                          </>
-                        )}
-                      </div>
+                  <div className="flex items-center gap-3">
+                    {isLoggedIn && (
+                      <>
+                        <button
+                          onClick={() => navigate("/inbox")}
+                          className="bg-[#9999A7]  sm:w-36 w-24 rounded-full text-white text-xs font-bold p-3"
+                        >
+                          Chat
+                        </button>
+                        <button
+                          onClick={() => navigate("/view-profile")}
+                          className="border border-[#1F1F1F] sm:w-36 w-24 text-nowrap rounded-full text-[#1F1F1F] text-xs font-bold p-3"
+                        >
+                          View Profile
+                        </button>
+                      </>
+                    )}
+                  </div>
 
                   <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 mt-4">
                     <div className="flex items-start gap-3">
@@ -369,13 +377,30 @@ export default function DestinationDetailPage() {
                     </div>
                   </div>
                 </div>
+                {role === "host" ? (
+                  <div className="flex items-center justify-between gap-3 mb-4">
+                    <button
+                      onClick={() => console.log("Declined")}
+                      className="bg-[#9999A7] w-full rounded-full text-white text-xs font-bold py-3"
+                    >
+                      Decline
+                    </button>
 
-                <button
-                  onClick={handleBooking}
-                  className="w-full cursor-pointer bg-black text-white text-sm py-3 my-5 rounded-full font-medium font-[Inter] hover:bg-gray-900"
-                >
-                  Book Now
-                </button>
+                    <button
+                      onClick={() => console.log("Accepted")}
+                      className="border border-[#1F1F1F] w-full rounded-full text-[#1F1F1F] text-xs font-bold py-3"
+                    >
+                      Accept
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={handleBooking}
+                    className="w-full cursor-pointer bg-black text-white text-sm py-3 my-5 rounded-full font-medium font-[Inter] hover:bg-gray-900"
+                  >
+                    Book Now
+                  </button>
+                )}
 
                 {/* Price Breakdown */}
                 <p className="text-sm text-[#6B7280] font-[Mulish] mb-2">

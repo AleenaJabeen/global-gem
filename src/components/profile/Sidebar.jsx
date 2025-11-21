@@ -13,7 +13,7 @@ export const Sidebar = ({ active, setActive, enterPage ,form}) => {
   ];
 
   return (
-    <div className="w-full bg-white h-full border-r-2 pr-2 border-[#F4F4F5]  py-5 px-8 flex flex-col px-7">
+<div className="w-full bg-white h-full border-r-2 pr-2 border-[#F4F4F5] py-5 px-8 flex flex-col overflow-y-auto no-scrollbar">
       <div className="flex flex-col items-center">
         <div className="relative">
         <img

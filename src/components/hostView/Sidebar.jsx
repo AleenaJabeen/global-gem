@@ -10,19 +10,19 @@ export const Sidebar = ({ active, setActive, enterPage, form }) => {
     { id: "profile", label: "Profile Information" },
     { id: "booking", label: "Booking History" },
     { id: "listing", label: "My Listing" },
-    { id: "notifications", label: "Manage Notifications" },
+    { id: "promotions", label: "Promotions" },
     { id: "analytics", label: "Analytics" },
   ];
 
   return (
-    <div className="w-full bg-white h-full border-r-2 pr-2 border-[#F4F4F5]  py-5 px-8 flex flex-col px-7">
-      <div className="flex flex-col items-center">
-        <div className="relative">
+<div className="w-full bg-white h-full border-r-2 pr-2 border-[#F4F4F5] py-5 px-8 flex flex-col overflow-y-auto no-scrollbar">
+      <div className="flex flex-col md:items-center">
+        <div className="relative self-center">
           <img
             src={host3}
             className="md:w-[120px] md:h-[120px] h-24 w-24 rounded-full"
           />
-          <span className="absolute bottom-2 right-2 flex w-8 h-8 items-center justify-center p-1 rounded-full border-[2px] border-white bg-[#1F1F1F]">
+          <span className="absolute bottom-2 right-1 flex w-8 h-8 items-center justify-center p-1 rounded-full border-[2px] border-white bg-[#1F1F1F]">
             <MdEdit className="text-white text-lg" />
           </span>
         </div>

@@ -13,3 +13,6 @@
 .no-scrollbar {
   scrollbar-width: none; /* Firefox 64+ */
 }
+ input[type="date"]::-webkit-calendar-picker-indicator {
+      display: none;
+    }

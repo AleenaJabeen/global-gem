@@ -11,22 +11,23 @@ import DestinationDetailPage from "./components/home/DestinationDetailPage";
 import CityListing from "./components/CityListing/CityListing";
 import BookingSummary from "./components/profile/BookingSummary";
 import ChatBox from "./components/travelerView/ChatBox";
-import GuideProfile from './components/travelerView/GuideProfile';
+import GuideProfile from "./components/travelerView/GuideProfile";
+import TravelerProfilePage from "./components/hostView/TravelerProfilePage";
 import TravelerProfileGuide from "./components/hostView/TravelerProfileGuide";
-import TravelerProfilePage from './components/hostView/TravelerProfilePage'
-import ProfilePage from './components/profile/ProfilePage'
+import ProfilePage from "./components/profile/ProfilePage";
+
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 
 function App() {
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, role } = useContext(AuthContext);
 
   return (
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* Public Routes */}
+          {/* PUBLIC ROUTES */}
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="package" element={<Package />} />
@@ -35,9 +36,18 @@ function App() {
           <Route path="signup" element={<CreateAccount />} />
           <Route path="detail" element={<DestinationDetailPage />} />
           <Route path="city-listing" element={<CityListing />} />
-          <Route path="list" element={<TravelerProfilePage/>}/>
-          {/* Protected Routes — only visible when logged in */}
-          {isLoggedIn && (
+
+          {/* HOST PROTECTED ROUTES */}
+          {role === "host" && (
+            <>
+              <Route path="/profile" element={<TravelerProfilePage />} />
+              <Route path="/view-profile" element={<TravelerProfileGuide />} />
+                <Route path="inbox" element={<ChatBox />} />
+            </>
+          )}
+
+          {/* TRAVELER PROTECTED ROUTES */}
+          {isLoggedIn && role === "traveler" && (
             <>
               <Route path="profile" element={<ProfilePage />} />
               <Route path="booking-summary" element={<BookingSummary />} />

@@ -3,7 +3,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaFacebookF } from "react-icons/fa";
 import { mail } from "../../assets";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../layout/Navbar";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -21,28 +21,34 @@ export default function Login() {
     return emailRegex.test(email);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newErrors = {};
+  const { loginAsTraveler, loginAsHost } = useContext(AuthContext);
 
-    if (!email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!validateEmail(email)) {
-      newErrors.email = "Enter a valid email address";
+const location = useLocation();
+const redirectTo = new URLSearchParams(location.search).get("redirect");
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const newErrors = {};
+
+  if (!email.trim()) newErrors.email = "Email is required";
+  else if (!validateEmail(email)) newErrors.email = "Enter a valid email";
+
+  if (!password.trim()) newErrors.password = "Password is required";
+
+  setErrors(newErrors);
+
+  if (Object.keys(newErrors).length === 0) {
+    console.log("Logging in:", { email, password });
+
+    if (redirectTo === "host") {
+      loginAsHost();
+      navigate("/");
+    } else {
+      loginAsTraveler();
+      navigate("/");
     }
-
-    if (!password.trim()) {
-      newErrors.password = "Password is required";
-    }
-
-    setErrors(newErrors);
-    if (Object.keys(newErrors).length === 0) {
-   login();
-    navigate("/");
-      console.log("Logging in with:", { email, password });
-    }
-  };
-
+  }
+};
   return (
     <>
       <Navbar

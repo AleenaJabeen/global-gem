@@ -7,6 +7,7 @@ import Navbar from "../../layout/Navbar";
 import { useNavigate } from "react-router-dom";
 import BookingInformation from "./BookingInformation";
 import Wishlist from "./Wishlist";
+import { MdOutlineArrowBackIosNew } from "react-icons/md";
 
 // --- PROFILE INFO PAGE ---
 const ProfileInfo = ({ form, setForm }) => (
@@ -91,19 +92,17 @@ const InputField = ({ label, name, value, setForm, type }) => {
         onChange={(e) => {
           // IMPORTANT: when masked, user types '*' → blocked
           // So only update real password when not masked
-          if (isPassword && isMasked) return;  
+          if (isPassword && isMasked) return;
 
           setForm((prev) => ({ ...prev, [name]: e.target.value }));
         }}
-        onFocus={() => setIsMasked(false)}   // show real password
-        onBlur={() => setIsMasked(true)}     // return to masked
+        onFocus={() => setIsMasked(false)} // show real password
+        onBlur={() => setIsMasked(true)} // return to masked
         className="w-full text-sm text-[#495560] font-[Mulish] mt-1 px-4 py-2 border border-[#E5E5EA] rounded-full"
       />
     </div>
   );
 };
-
-
 
 export default function ProfilePage() {
   const [active, setActive] = useState("profile");
@@ -115,9 +114,9 @@ export default function ProfilePage() {
     dob: "15/03/1886",
     phone: "+46-7644 394 68",
     location: "Gothenburg",
-    email:"wayan@gmail.com",
-    password:"***",
-    confirmPassword:"***"
+    email: "wayan@gmail.com",
+    password: "***",
+    confirmPassword: "***",
   });
 
   const enterPage = (page) => {
@@ -127,19 +126,19 @@ export default function ProfilePage() {
 
   const goBack = () => setShowContent(false);
   const titles = {
-  profile: "Personal Information",
-  booking: "Booking Information",
-  newsletter: "Newsletter Subscription",
-  notifications: "Manage Notifications",
-  wishlist: "Wishlist",
-};
+    profile: "Personal Information",
+    booking: "Booking Information",
+    newsletter: "Newsletter Subscription",
+    notifications: "Manage Notifications",
+    wishlist: "Wishlist",
+  };
 
   const renderComponent = () => {
     switch (active) {
       case "profile":
         return <ProfileInfo form={form} setForm={setForm} />;
       case "booking":
-        return <BookingInformation/>;
+        return <BookingInformation />;
       case "newsletter":
         return <Newsletter />;
       case "notifications":
@@ -151,74 +150,80 @@ export default function ProfilePage() {
     }
   };
 
-  return (
-    <>
-      <Navbar
-        navStyle="text-[#1C1C1E] bg-white"
-        buttonBg="bg-[#1C1C1E] text-[#F2F2F7]"
-      />
+ return (
+  <>
+    <Navbar
+      navStyle="text-[#1C1C1E] bg-white"
+      buttonBg="bg-[#1C1C1E] text-[#F2F2F7]"
+    />
 
-      <div className="w-full lg:px-16 px-6 py-6">
-        <div className="flex flex-col px-2 pb-4">
-          <h2 className="font-[Volkhov] md:text-[22px] text-lg font-bold text-[#1C2B38]">
-            My Profile
-          </h2>
-          <h3 className="text-[#778088] font-[Mulish] font-semibold text-[15px]">
-            <span onClick={() => navigate("/")} className="cursor-pointer">
-              Home
-            </span>
-            /My Profile
-          </h3>
+    <div className="w-full lg:px-16 md:px-6 px-4 py-6">
+      {/* PAGE TITLES */}
+      <div className="flex flex-col px-2 pb-4">
+        <h2 className="font-[Volkhov] md:text-[22px] text-lg font-bold text-[#1C2B38]">
+          My Profile
+        </h2>
+        <h3 className="text-[#778088] font-[Mulish] font-semibold text-[15px]">
+          <span onClick={() => navigate("/")} className="cursor-pointer">
+            Home
+          </span>
+          /My Profile
+        </h3>
+      </div>
+
+      <div className="flex h-[calc(100vh-150px)] relative overflow-hidden">
+
+        {/* --- DESKTOP SIDEBAR --- */}
+        <div className="hidden md:block md:w-[30%] h-full">
+          <Sidebar
+            active={active}
+            setActive={setActive}
+            enterPage={enterPage}
+            form={form}
+          />
         </div>
-      <div className="flex h-[100vh]">
-  {/* LEFT SIDEBAR */}
-  <div className="md:w-[30%] w-full hidden md:block h-full overflow-hidden">
-    <Sidebar
-      active={active}
-      setActive={setActive}
-      enterPage={enterPage}
-      form={form}
-    />
-  </div>
 
-  {/* MOBILE SIDEBAR */}
-  <div
-    className={`fixed md:hidden z-20 top-0 left-0 h-full w-full bg-white transition-all duration-300 ${
-      showContent ? "-translate-x-full" : "translate-x-0"
-    }`}
-  >
-    <Sidebar
-      active={active}
-      setActive={setActive}
-      enterPage={enterPage}
-      form={form}
-    />
-  </div>
+        {/* --- MOBILE / TABLET SIDEBAR (FULL SCREEN) --- */}
+        <div
+          className={`md:hidden absolute inset-0 bg-white z-20 transition-transform duration-300 
+            ${showContent ? "-translate-x-full" : "translate-x-0"}`}
+        >
+          <Sidebar
+            active={active}
+            setActive={setActive}
+            enterPage={enterPage}
+            form={form}
+          />
+        </div>
 
-  {/* RIGHT CONTENT WITH SLIDE-IN */}
-  <div
-    className={`flex-1 h-full p-6 overflow-y-auto no-scrollbar bg-white transition-all duration-300 ${
-      showContent ? "translate-x-0" : "translate-x-full md:translate-x-0"
-    }`}
-  >
-    {/* Mobile back button */}
-    <button
-      onClick={goBack}
-      className="md:hidden mb-4 text-sm text-blue-500"
-    >
-      ← Back
-    </button>
+        {/* --- CONTENT AREA for ALL DEVICES --- */}
+        <div
+          className={`flex-1 h-full overflow-y-auto bg-white transition-transform duration-300
+            md:translate-x-0
+            ${showContent ? "translate-x-0" : "translate-x-full md:translate-x-0"}
+          `}
+        >
+         
 
-    <div className="w-full px-6 pb-10">
-      <h2 className="font-[Mulish] font-bold text-xl text-[#1C2B38] mb-6">
-        {titles[active]}
-      </h2>
-      {renderComponent()}
-    </div>
-  </div>
-</div>
+          {/* CONTENT */}
+          <div className="w-full px-2 pb-10">
+            <div className="flex items-center gap-2 font-[Mulish] font-bold text-xl text-[#1C2B38] mb-4">
+                <button
+            onClick={goBack}
+            className="md:hidden text-base text-black "
+          >
+           <MdOutlineArrowBackIosNew />
+          </button>
+              <span>{titles[active]}</span>
+            </div>
+
+            {renderComponent()}
+          </div>
+        </div>
 
       </div>
-    </>
-  );
+    </div>
+  </>
+);
+
 }

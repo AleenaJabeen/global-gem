@@ -1,12 +1,34 @@
 import React, { useState } from "react";
 import { LuSearch } from "react-icons/lu";
-import { booking, profile, sliders, trash } from "../../assets";
+import {  profile, sliders, trash } from "../../assets";
+import { useNavigate } from "react-router-dom";
 
 const BookingInformation = () => {
   const [activeTab, setActiveTab] = useState("upcoming"); // upcoming | pending | previous
   const [search, setSearch] = useState("");
   const [deleteMode, setDeleteMode] = useState(false);
   const [filter, setFilter] = useState(null);
+   const navigate = useNavigate();
+
+  const handleFirstButton = (trip) => {
+    if (trip.status.toLowerCase() === "pending") {
+      // Decline (no navigation)
+      console.log("Decline clicked");
+    } else {
+      // Chat
+      navigate("/inbox");
+    }
+  };
+
+  const handleSecondButton = (trip) => {
+    if (trip.status.toLowerCase() === "pending") {
+      // Accept (no navigation)
+      console.log("Accept clicked");
+    } else {
+      // View Details
+      navigate("/view-profile");
+    }
+  };
 
   // ALL TRIPS DATA
   const [trips, setTrips] = useState([
@@ -191,13 +213,19 @@ const BookingInformation = () => {
             </p>
             <div className="font-[Inter] flex flex-col items-end gap-6 mt-6">
               <div className="flex items-center gap-3">
-                <button className="bg-[#9999A7]  sm:w-36 w-24 rounded-xl text-white text-xs font-bold p-3">
-                 {trip.status.toLowerCase()==="pending" ?"Decline":"Chat"}
-                </button>
-                <button className="border border-[#1F1F1F] sm:w-36 w-24 text-nowrap rounded-xl text-[#1F1F1F] text-xs font-bold p-3">
-                                  {trip.status.toLowerCase()==="pending" ?"Accept":"View Details"}
+                 <button
+        onClick={()=>handleFirstButton(trip)}
+        className="bg-[#9999A7] sm:w-36 w-24 rounded-xl text-white text-xs font-bold p-3"
+      >
+        {trip.status.toLowerCase() === "pending" ? "Decline" : "Chat"}
+      </button>
 
-                </button>
+      <button
+        onClick={()=>handleSecondButton(trip)}
+        className="border border-[#1F1F1F] sm:w-36 w-24 text-nowrap rounded-xl text-[#1F1F1F] text-xs font-bold p-3"
+      >
+        {trip.status.toLowerCase() === "pending" ? "Accept" : "View Details"}
+      </button>
                 {/* DELETE BUTTON */}
                 {deleteMode && (
                   <button

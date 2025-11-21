@@ -10,7 +10,7 @@ const BookingInformation = () => {
   const [search, setSearch] = useState("");
   const [deleteMode, setDeleteMode] = useState(false);
   const [filter, setFilter] = useState(null);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const currentBookingsData = [
     {
       id: 1,
@@ -145,79 +145,97 @@ const BookingInformation = () => {
       </div>
 
       {/* Tabs */}
-      <div className="w-full font-[Inter] text-base  flex gap-6 mb-5 pb-2">
-        <div
-          className={` w-1/2 text-center cursor-pointer font-semibold ${
-            activeTab === "current" ? "text-[#1C1C1E]" : "text-[#9999A7]"
-          }`}
-          onClick={() => setActiveTab("current")}
-        >
-          <span
-            className={`${
-              activeTab === "current" ? "border-[#1C1C1E] border-b-2 pb-2" : ""
-            }`}
-          >
-            Current Bookings
-          </span>
-        </div>
+      <div className="w-full font-[Inter] text-base flex flex-wrap sm:flex-nowrap gap-4 sm:gap-6 mb-5 pb-2">
+  {/* Current */}
+  <div
+    className={`
+      flex-1 text-center cursor-pointer font-semibold 
+      ${activeTab === "current" ? "text-[#1C1C1E]" : "text-[#9999A7]"}
+    `}
+    onClick={() => setActiveTab("current")}
+  >
+    <span
+      className={`
+        inline-block pb-2
+        ${
+          activeTab === "current"
+            ? "border-b-2 border-[#1C1C1E]"
+            : "border-none"
+        }
+      `}
+    >
+      Current Bookings
+    </span>
+  </div>
 
-        <div
-          className={`w-1/2 text-center cursor-pointer font-semibold ${
-            activeTab === "previous" ? "text-[#1C1C1E]" : "text-[#9999A7]"
-          }`}
-          onClick={() => setActiveTab("previous")}
-        >
-          <span
-            className={`${
-              activeTab === "previous" ? "border-[#1C1C1E] border-b-2 pb-2" : ""
-            }`}
-          >
-            Previous Bookings
-          </span>
-        </div>
-      </div>
+  {/* Previous */}
+  <div
+    className={`
+      flex-1 text-center cursor-pointer font-semibold 
+      ${activeTab === "previous" ? "text-[#1C1C1E]" : "text-[#9999A7]"}
+    `}
+    onClick={() => setActiveTab("previous")}
+  >
+    <span
+      className={`
+        inline-block pb-2 
+        ${
+          activeTab === "previous"
+            ? "border-b-2 border-[#1C1C1E]"
+            : "border-none"
+        }
+      `}
+    >
+      Previous Bookings
+    </span>
+  </div>
+</div>
 
       {/* Cards */}
       <div className="flex flex-col gap-4">
         {list.map((card) => (
-          <div 
+          <div
             key={card.id}
             onClick={() => {
-              deleteMode && deleteCard(card.id)
-              navigate("/detail")
+              deleteMode && deleteCard(card.id);
+              navigate("/detail");
             }}
-            className={`flex bg-[#F6F6F6] gap-4 p-4 rounded-[15px] cursor-pointer transition ${
-              deleteMode ? "hover:bg-red-100" : "hover:bg-gray-100"
-            }`}
+            className={`flex flex-col sm:flex-row bg-[#F6F6F6] gap-4 p-4 rounded-[15px] cursor-pointer transition
+    ${deleteMode ? "hover:bg-red-100" : "hover:bg-gray-100"}
+  `}
           >
             {/* Image */}
-            <img src={card.img} className="w-28 h-20 rounded-lg object-cover" />
+            <img
+              src={card.img}
+              className="w-full sm:w-32 sm:h-24 h-40 rounded-lg object-cover"
+            />
 
             {/* Details */}
-            <div className="font-[Inter]  flex flex-col justify-between flex-1">
-              <span className="w-fit text-sm bg-[#515151] text-white px-2 py-1 rounded">
+            <div className="font-[Inter] flex flex-col justify-between flex-1">
+              <span className="w-fit text-xs sm:text-sm bg-[#515151] text-white px-2 py-1 rounded">
                 {card.category}
               </span>
 
-              <h3 className="font-medium text-[#1C1C1E] text-xl">
+              <h3 className="font-medium text-[#1C1C1E] text-lg sm:text-xl mt-1 sm:mt-0">
                 {card.name}
               </h3>
-              <p className="text-sm text-[#9999A7] flex items-center gap-1">
+
+              <p className="text-sm text-[#9999A7] flex items-center gap-1 mt-1">
                 <HiMiniMapPin size={16} />
                 {card.location}
               </p>
             </div>
 
-            {/* Price and Favorite */}
-            <div className="font-[Inter] flex flex-col gap-3 items-end">
+            {/* Price + Favorite (mobile goes to bottom) */}
+            <div className="font-[Inter] flex sm:flex-col flex-row justify-between sm:items-end items-center gap-3 sm:gap-3 mt-2 sm:mt-0">
               <button
                 onClick={(e) => {
-                  e.stopPropagation(); // prevents delete tap
+                  e.stopPropagation();
                   toggleWishlist(card.id);
                 }}
                 className={`${
                   card.wishlist ? "bg-[#FF6B6B]" : ""
-                } w-8 h-8 flex items-center justify-center rounded-full p-1 transition-transform duration-200 hover:scale-110`}
+                } w-9 h-9 flex items-center justify-center rounded-full p-1 transition-transform duration-200 hover:scale-110`}
               >
                 {card.wishlist ? (
                   <AiFillHeart className="text-white rounded-full text-xl" />
@@ -230,11 +248,9 @@ const BookingInformation = () => {
                 )}
               </button>
 
-              <p className="font-semibold text-sm text-[#1F1F1F] flex items-center">
+              <p className="font-semibold text-base sm:text-sm text-[#1F1F1F] flex items-center">
                 ${card.price}
-                <span className="font-normal text-xs text-[#9999A7]">
-                  /day
-                </span>{" "}
+                <span className="font-normal text-xs text-[#9999A7]">/day</span>
               </p>
             </div>
           </div>

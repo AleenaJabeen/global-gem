@@ -42,8 +42,8 @@ function Wishlist() {
 
   // ⭐ Toggle wishlist → remove item
   const toggleWishlist = (id) => {
-    setWishlistItems((prev) =>
-      prev.filter((item) => item.id !== id) // remove from wishlist
+    setWishlistItems(
+      (prev) => prev.filter((item) => item.id !== id) // remove from wishlist
     );
   };
 
@@ -54,9 +54,12 @@ function Wishlist() {
 
   // ⭐ Filter function
   const applyFilter = (list) => {
-    if (filter === "price_low") return [...list].sort((a, b) => a.price - b.price);
-    if (filter === "price_high") return [...list].sort((a, b) => b.price - a.price);
-    if (filter === "name_az") return [...list].sort((a, b) => a.name.localeCompare(b.name));
+    if (filter === "price_low")
+      return [...list].sort((a, b) => a.price - b.price);
+    if (filter === "price_high")
+      return [...list].sort((a, b) => b.price - a.price);
+    if (filter === "name_az")
+      return [...list].sort((a, b) => a.name.localeCompare(b.name));
     return list;
   };
 
@@ -118,12 +121,15 @@ function Wishlist() {
           <div
             key={card.id}
             onClick={() => deleteMode && deleteCard(card.id)}
-            className={`flex bg-[#F6F6F6] gap-4 p-4 rounded-[15px] cursor-pointer transition ${
+            className={`flex flex-col sm:flex-row bg-[#F6F6F6] gap-4 p-4 rounded-[15px] cursor-pointer transition ${
               deleteMode ? "hover:bg-red-100" : "hover:bg-gray-100"
             }`}
           >
             {/* Image */}
-            <img src={card.img} className="w-28 h-20 rounded-lg object-cover" />
+            <img
+              src={card.img}
+              className="w-full sm:w-32 sm:h-24 h-40 rounded-lg object-cover"
+            />
 
             {/* Details */}
             <div className="font-[Inter] flex flex-col justify-between flex-1">
@@ -142,10 +148,10 @@ function Wishlist() {
             </div>
 
             {/* Price + Wishlist toggle */}
-            <div className="font-[Inter] flex flex-col gap-3 items-end">
+            <div className="flex sm:flex-col flex-row justify-between sm:items-end items-center gap-3 sm:gap-3 mt-2 sm:mt-0">
               <button
                 onClick={(e) => {
-                  e.stopPropagation(); 
+                  e.stopPropagation();
                   toggleWishlist(card.id); // remove item
                 }}
                 className="bg-[#FF6B6B] w-8 h-8 flex items-center justify-center rounded-full p-1 hover:scale-110"
