@@ -49,7 +49,7 @@ export default function Navbar(props) {
 
           {!isLoggedIn ? (
             <button
-              onClick={() => navigate("/signup?redirect=login")}
+              onClick={() => navigate("/login")}
               className={`hidden md:block cursor-pointer ${
                 props.buttonBg ? props.buttonBg : "bg-white text-[#1F1F1F]"
               }   font-semibold px-5 py-2 rounded-full transition`}
@@ -107,7 +107,7 @@ export default function Navbar(props) {
           {!isLoggedIn ? (
             <button
               onClick={() => {
-                navigate("/signup?redirect=login");
+                navigate("/login");
                 toggleMenu();
               }}
               className="w-full cursor-pointer bg-white text-black font-semibold py-2 rounded-full transition"
